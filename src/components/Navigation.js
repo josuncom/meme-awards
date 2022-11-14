@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import {NavLink } from 'react-router-dom';
 import { Link } from 'react-scroll';
-import "./Navigation.css";
+import styled from "styled-components";
 
 export default function Navigation(){
     
@@ -12,35 +12,76 @@ export default function Navigation(){
         };
 
     return(
-        <div className="HeaderContainer">
-            <Link to="HomeContainer" className="HeaderTitle" spy={true} smooth={true}>
-                    Ag.
-                </Link>
-            <div className="HeaderBox">
-                
+        <HeaderContainer>
+                <HeaderTitle to="HomeContainer" spy={true} smooth={true}>
+                    MEME
+                </HeaderTitle>
+            <HeaderBox>
             <div className= "HeaderMenu">
-                <Link to="HomeContainer" className="NavBtn" spy={true} smooth={true}>
+                <NavBtn to="HomeContainer" className="NavBtn" spy={true} smooth={true}>
                     HOME
-                </Link>
+                </NavBtn>
                 
-                <Link to="AboutContainer" className="NavBtn" spy={true} smooth={true}>
+                <NavBtn to="AboutContainer" className="NavBtn" spy={true} smooth={true}>
                     ABOUT
-                </Link>
+                </NavBtn>
 
-                <Link to="ProjectContainer" className="NavBtn" spy={true} smooth={true}>
+                <NavBtn to="ProjectContainer" className="NavBtn" spy={true} smooth={true}>
                     PROJECTS
-                </Link>
+                </NavBtn>
 
-                <Link to="ProfileContainer" className="NavBtn" spy={true} smooth={true}>
+                <NavBtn to="ProfileContainer" className="NavBtn" spy={true} smooth={true}>
                     PROFILE
-                </Link>
+                </NavBtn>
 
-
-                <Link to="ConnectContainer" className="NavBtn" spy={true} smooth={true}>
+                <NavBtn to="ConnectContainer" className="NavBtn" spy={true} smooth={true}>
                     CONNECT
-                </Link>
+                </NavBtn>
             </div>
-        </div>
-        </div>
+        </HeaderBox>
+        </HeaderContainer>
     )
 }
+
+
+const HeaderTitle = styled(Link)`
+    &:hover{
+        text-decoration: none;
+        color: rgba(117, 114, 114, 0.856);
+        transition: 1s;
+    };
+    margin-top: 3%;
+    color: white;
+    font-size: 40px;
+    animation: rotation linear infinite 3s;
+    text-decoration: none;
+    padding-left: 2%;
+    transition: 1s;
+`;
+
+const HeaderContainer = styled.div`
+    display: flex;
+    background-color: black;
+    width: 100%;
+    color: white;
+    position: fixed;
+    z-index: 999;
+    opacity: 0.8;
+`;
+
+const HeaderBox = styled.div`
+    margin-top: 4%;
+`;
+
+const NavBtn = styled(Link)`
+    &:hover{
+        text-decoration: none;
+        color: rgba(117, 114, 114, 0.856);
+        transition: 1s;
+    };
+    padding: 15px;
+    font-size: 12px;
+    color: #ffffff;
+    text-decoration: none;
+    z-index: 10;
+`

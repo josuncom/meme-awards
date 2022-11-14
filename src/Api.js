@@ -1,6 +1,4 @@
 import { collection, getFirestore, getDocs, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
-import { Cookies, useCookies } from "react-cookie";
-import moment, { deprecationHandler } from "moment/moment";
 
 export async function getData() {
     const db = getFirestore();
