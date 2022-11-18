@@ -1,10 +1,20 @@
 import React from "react";
-import "./footer.css";
+import styled from "styled-components";
 
 function Footer(){
     return(
-        <div className="FooterContainer">© 2022 &nbsp;EUN CHO.&nbsp; All Rights Reserved.</div>
+        <FooterContainer>
+            © 2022 &nbsp;EUN CHO.&nbsp; All Rights Reserved.
+        </FooterContainer>  
     )
 }
 
 export default Footer;
+
+const FooterContainer = styled.div`
+    text-align: center;
+    color: white;
+    padding-bottom: 20px;
+    font-weight: 200;
+    font-size: 12px;
+`;

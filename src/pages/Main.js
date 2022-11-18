@@ -22,7 +22,6 @@ export default function Main(){
 
   return(
     <Fragment>
-      <Navigation/>
         <Home/>
         <About/>
         <Project/>

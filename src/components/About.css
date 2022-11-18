@@ -5,7 +5,7 @@ div {
 .AboutContainer {
   background-color: black;
   color: white;
-  height: 800px;
+  height: 50rem;
   padding-top: 150px;
 }
 
@@ -45,4 +45,9 @@ div {
 .AboutLine {
   width: 200px;
   margin-left: 37%;
+}
+
+.active{
+  opacity: 0.5;
+  color: white;
 }
