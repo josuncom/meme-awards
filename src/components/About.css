@@ -67,12 +67,16 @@ div {
   border-radius: 2rem;
   font-family: 'GmarketSansMedium';
 }
-.footerButton.active{
+.footerButton.active,
+.footerButton.inactive{
   transition: transform .5s cubic-bezier(.47,1.64,.41,.8);
   transform: translate(-50%);
-  background: white;
+  background: green;
   color: black;
   z-index : 999;
   opacity: 1 !important;
+}
 
+.footerButton.inactive{
+  background: gray;
 }

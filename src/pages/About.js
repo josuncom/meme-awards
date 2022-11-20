@@ -8,6 +8,7 @@ import styled from "styled-components";
 export default function About() {
     const [idolVoted, setIdolVoted] = useState("");
     const [poseVoted, setPoseVoted] = useState("");
+    const [canVote, setCanVote] = useState(false);
     const [scrollHeight, setScrollHeight] = useState(0);
 
     const COOKIE_KEYS = 'isVoted';
@@ -23,12 +24,16 @@ export default function About() {
     });
 
     const toggleActive = (e, part) => {     // 각 후보에 해당하는 DIV toggle용
-        console.log(e.target.value);
+        if (btnActive[part] == e.target.value){
+            setBtnActive({
+                ...btnActive,
+                [part] : "",
+            });
+        }else{
         setBtnActive({
             ...btnActive,
             [part]: e.target.value,
-        })
-        console.log('btnActive : ' + btnActive[part]);
+        })}
     };
     
     const updateTotalCount = async() =>{            // 총 투표수 업데이트
@@ -38,6 +43,7 @@ export default function About() {
             count: increment(1)
         });
     }
+
 
     function voteMeme(idolMeme, poseMeme){      // 투표 반영
         const db = getFirestore();
@@ -65,6 +71,7 @@ export default function About() {
         updateTotalCount();
     }
 
+
     const setData = () => {
         const expireDay = moment();
         expireDay.add(10, 'seconds');
@@ -84,6 +91,8 @@ export default function About() {
         } 
     }
 
+
+    // 각 부문 선택했는지 체크
     const checkIdolVote = (idolName, event, part) => {
         toggleActive(event, part);
         if (idolVoted === ""){
@@ -102,11 +111,8 @@ export default function About() {
         }   
     }
 
-    // 디버깅용 코드
-    // useEffect(() => {
-    //     console.log(idolVoted, poseVoted);
-    // }, [idolVoted, poseVoted]);
 
+    // 투표 섹션 들어갔는지 스크롤 높이로 계산해서 판단
     const handleScroll = () => {
         let voteElement = document.querySelector('.HomeContainer');
         let voteButton = document.querySelector('.HomeBoxIntro');
@@ -123,9 +129,11 @@ export default function About() {
             setScrollHeight(false);
         } 
         // console.log(scrollHeight);
-        console.log(startScroll, endScroll);
+        // console.log(startScroll, endScroll);
       };
 
+
+    // 스크롤 높이 변할 때마다 state에 저장
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
         return () => {
@@ -133,6 +141,15 @@ export default function About() {
         };
       }, [scrollHeight]);
 
+
+    // 모든 부문 선택했을 때 투표 버튼 활성화
+    useEffect(() => {
+        if (idolVoted !== "" && poseVoted !== ""){
+            setCanVote(true);
+        }else{
+            setCanVote(false);
+        }
+    }, [idolVoted, poseVoted]);  // TODO - 의존성 배열에 다른 부문도 쭉 추가
 
     return(
         <>  
@@ -177,8 +194,9 @@ export default function About() {
                 </button>
                 )}
             </div>
-            {scrollHeight ? (
-                <div className="footerButton active" onClick={() => setData()}>
+            {scrollHeight ? ( 
+                <div className={canVote ? "footerButton active" : "footerButton inactive" } 
+                     onClick={canVote ? () => setData() : null} >
                     투표하기
                 </div>
             ) : 
