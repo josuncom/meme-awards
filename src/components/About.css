@@ -51,3 +51,28 @@ div {
   opacity: 0.5;
   color: white;
 }
+
+.footerButton{
+  position: fixed;
+  width: 15rem;
+  bottom: 30px;
+  transition: transform .5s cubic-bezier(.47,1.64,.41,.8);
+  transform: translate(-50%);
+  transform: translate(0, 100px);
+  left: 50%;
+  opacity: 1;
+  height: 5rem;
+  text-align: center;
+  line-height: 5rem;
+  border-radius: 2rem;
+  font-family: 'GmarketSansMedium';
+}
+.footerButton.active{
+  transition: transform .5s cubic-bezier(.47,1.64,.41,.8);
+  transform: translate(-50%);
+  background: white;
+  color: black;
+  z-index : 999;
+  opacity: 1 !important;
+
+}

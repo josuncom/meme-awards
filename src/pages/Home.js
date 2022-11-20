@@ -51,7 +51,6 @@ export default function Home() {
             {second < 10 ? '0' + second : second}초&nbsp;
             </Time>
             </div>
-            <VoteCount/>
         </>
     )
 }

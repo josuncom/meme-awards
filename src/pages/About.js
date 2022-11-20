@@ -8,6 +8,7 @@ import styled from "styled-components";
 export default function About() {
     const [idolVoted, setIdolVoted] = useState("");
     const [poseVoted, setPoseVoted] = useState("");
+    const [scrollHeight, setScrollHeight] = useState(0);
 
     const COOKIE_KEYS = 'isVoted';
     const [cookies, setCookies] = useCookies([COOKIE_KEYS]);
@@ -61,7 +62,6 @@ export default function About() {
                     }
             }
         });
-
         updateTotalCount();
     }
 
@@ -107,6 +107,32 @@ export default function About() {
     //     console.log(idolVoted, poseVoted);
     // }, [idolVoted, poseVoted]);
 
+    const handleScroll = () => {
+        let voteElement = document.querySelector('.HomeContainer');
+        let voteButton = document.querySelector('.HomeBoxIntro');
+        
+        let votestart = voteElement.getBoundingClientRect().top;
+        let voteEnd = voteButton.getBoundingClientRect().top - voteElement.getBoundingClientRect().bottom;
+
+        let startScroll = votestart - window.scrollY;
+        let endScroll = voteEnd - window.scrollY;
+
+        if(startScroll <= 0 && endScroll >= 150){
+            setScrollHeight(1);
+        }else{
+            setScrollHeight(false);
+        } 
+        // console.log(scrollHeight);
+        console.log(startScroll, endScroll);
+      };
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+          window.removeEventListener('scroll', handleScroll); //clean up
+        };
+      }, [scrollHeight]);
+
 
     return(
         <>  
@@ -141,7 +167,6 @@ export default function About() {
                 </Nomination>)
             })}
             </VoteBox>
-
             <div className="HomeBoxIntro" onClick={() => setData()}>
                 {cookies[COOKIE_KEYS] ?                         
                 <h1>
@@ -152,6 +177,14 @@ export default function About() {
                 </button>
                 )}
             </div>
+            {scrollHeight ? (
+                <div className="footerButton active" onClick={() => setData()}>
+                    투표하기
+                </div>
+            ) : 
+            <div className="footerButton">투표하기
+                </div>}
+            
         </>
     );
 }
@@ -182,5 +215,4 @@ const Nomination = styled.button`
     cursor: pointer;
     background: #ab9831;
     transition: 0.1s;
-}
-`;
+`
