@@ -80,3 +80,37 @@ div {
 .footerButton.inactive{
   background: gray;
 }
+
+
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 9))}
+}
+
+
+.slider{
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 100px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 960px;
+}
+.slider-track{
+  position: relative;
+  width: calc(180rem * 9);
+  overflow-x: hidden;
+  display: flex;
+  animation: scroll 10s linear infinite;
+}
+
+.slide {
+  width: 180rem;
+  height: inherit;
+  left: 0%;
+  top: 0%;
+  text-align: center;
+  color: white;
+  border: 3px solid white;
+  border-radius: 10%;
+}

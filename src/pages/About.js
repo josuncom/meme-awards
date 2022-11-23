@@ -203,6 +203,38 @@ export default function About() {
             <div className="footerButton">투표하기
                 </div>}
             
+    <div className="slider">
+    <div className="slider-track">
+		<div className="slide">
+			킹받드라슈
+		</div>
+		<div className="slide">
+			식사는 잡쉈어?
+		</div>
+		<div className="slide">
+			재즈란 말이죠
+		</div>
+		<div className="slide">
+			한강을 메워야
+		</div>
+		<div className="slide">
+			너 뭐 돼?
+		</div>
+		<div className="slide">
+			프링글스 먹어봄?
+		</div>
+		<div className="slide">
+			새삥
+		</div>
+		<div className="slide">
+			통모짜핫도그
+		</div>
+        <div className="slide">
+			내 장점이 뭔지 알아?
+		</div>
+    </div>
+    
+    </div>
         </>
     );
 }
