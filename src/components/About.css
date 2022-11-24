@@ -1,0 +1,116 @@
+div {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.AboutContainer {
+  background-color: black;
+  color: white;
+  height: 50rem;
+  padding-top: 150px;
+}
+
+.AboutContainer h1 {
+  color: rgb(146, 142, 142);
+  font-weight: 800;
+}
+
+.AboutContainerTitle {
+  font-size: 40px;
+  text-align: center;
+}
+.AboutBox {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.WhoAmI {
+  margin-top: 12%;
+  font-size: 18px;
+  font-weight: 200;
+  text-align: center;
+}
+
+.WhatILike {
+  margin-top: 12%;
+  font-size: 18px;
+  font-weight: 200;
+  text-align: center;
+}
+
+.typeLike {
+  font-size: 18px;
+  margin-top: 12%;
+}
+
+.AboutLine {
+  width: 200px;
+  margin-left: 37%;
+}
+
+.active{
+  opacity: 0.5;
+  color: white;
+}
+
+.footerButton{
+  position: fixed;
+  width: 15rem;
+  bottom: 30px;
+  transition: transform .5s cubic-bezier(.47,1.64,.41,.8);
+  transform: translate(-50%);
+  transform: translate(0, 100px);
+  left: 50%;
+  opacity: 1;
+  height: 5rem;
+  text-align: center;
+  line-height: 5rem;
+  border-radius: 2rem;
+  font-family: 'GmarketSansMedium';
+}
+.footerButton.active,
+.footerButton.inactive{
+  transition: transform .5s cubic-bezier(.47,1.64,.41,.8);
+  transform: translate(-50%);
+  background: green;
+  color: black;
+  z-index : 999;
+  opacity: 1 !important;
+}
+
+.footerButton.inactive{
+  background: gray;
+}
+
+
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 9))}
+}
+
+
+.slider{
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	height: 100px;
+	margin: auto;
+	overflow:hidden;
+	position: relative;
+	width: 960px;
+}
+.slider-track{
+  position: relative;
+  width: calc(180rem * 9);
+  overflow-x: hidden;
+  display: flex;
+  animation: scroll 10s linear infinite;
+}
+
+.slide {
+  width: 180rem;
+  height: inherit;
+  left: 0%;
+  top: 0%;
+  text-align: center;
+  color: white;
+  border: 3px solid white;
+  border-radius: 10%;
+}
