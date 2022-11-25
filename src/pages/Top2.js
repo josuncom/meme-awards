@@ -36,4 +36,8 @@ const Top2Subtitle = styled.div`
     color: white;
     font-weight: bold;
     line-height: 6rem;
+
+    @media screen and (max-width: 500px){
+        font-size: 4rem;
+    }
 `

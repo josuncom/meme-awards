@@ -3,6 +3,7 @@ import '../components/Home.css';
 import '.././'
 import { getFirestore, getDoc, setDoc, doc, updateDoc, increment, collection } from "firebase/firestore";
 import styled from "styled-components";
+
 import Banner from '../image/main.jpg';
 import slideIcon1 from '../image/icon-1.svg';
 import slideIcon2 from '../image/icon-2.svg';
@@ -193,7 +194,6 @@ const BannerImg = styled.img`
 const HomeText = styled.div`
     text-align: center;
     font-size: 1.6rem;
-    margin-bottom: 5rem;
     font-family: 'Cabin', sans-serif !important;
     text-align: left;
     font-weight: bold;
@@ -213,6 +213,11 @@ const HomeMainText = styled.div`
     margin-top: 5rem;
     font-size: 5.5rem;
     font-family: 'Cabin', sans-serif !important;
+    
+    @media screen and (max-width: 500px){
+        font-size: 4.5rem;
+    }
+
 `
 
 const HomeSubText= styled.div`
@@ -220,4 +225,7 @@ const HomeSubText= styled.div`
     font-weight: 100;
     font-family: 'Cabin', sans-serif !important;
     line-height: 3rem;
+    @media screen and (max-width: 500px){
+        font-size: 1.3rem;
+    }
 `

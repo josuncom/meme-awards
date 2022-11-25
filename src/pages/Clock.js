@@ -1,6 +1,8 @@
 import { React, useState, useEffect} from "react";
 import styled from "styled-components";
 
+import CircleDown from '../image/Clock_circle_down.png';
+
 export default function(){
     const voteEndTime = new Date("2022-12-08");
     const todayTime = new Date();
@@ -38,21 +40,41 @@ export default function(){
                 투표해 주세요!  
             </TimeSubtitle>
             <Time className="time">
-                <TimeBox>{day}</TimeBox>:
-                <TimeBox>{hour < 10 ? '0' + hour : hour}</TimeBox>:
-                <TimeBox>{minute < 10 ? '0' + minute : minute}</TimeBox>:
-                <TimeBox>{second < 10 ? '0' + second : second}</TimeBox>
+                <TimeBox>
+                    <TimeNum>{day}</TimeNum>
+                    <TimeText>DAYS</TimeText>
+                </TimeBox> 
+                <TimeDot className="TimeDot">:</TimeDot>
+                <TimeBox>
+                    <TimeNum>{hour < 10 ? '0' + hour : hour}</TimeNum>
+                    <TimeText>HOURS</TimeText>
+                </TimeBox>
+                <TimeDot className="TimeDot">:</TimeDot>
+                <TimeBox>
+                    <TimeNum>{minute < 10 ? '0' + minute : minute}</TimeNum>
+                    <TimeText>MINUTES</TimeText>
+                </TimeBox>
+                <TimeDot className="TimeDot">:</TimeDot>
+                <TimeBox>
+                    <TimeNum>{second < 10 ? '0' + second : second}</TimeNum>
+                    <TimeText>SECONDS</TimeText>
+                </TimeBox>
             </Time>
+            <TimeBottom>
+                TV/OTT, SNS, 챌린지 포함<br/>
+                총 <span style={{color: '#FAFF00'}}>6개 부문</span>에 투표가 가능합니다.
+            </TimeBottom>
+            <TimeImageBox>
+                <img style={{width:'5rem'}} src={CircleDown}/>
+            </TimeImageBox>
         </TimeContainer>
-        
-        
       )
 }
 
 const TimeContainer = styled.div`
     background: #0a0a0a;
-    height: 500px;
-    padding: 6.5rem 3rem;
+    height: 600px;
+    padding: 7rem 0;
 `
 
 const TimeTitle = styled.div`
@@ -66,7 +88,7 @@ const TimeTitle = styled.div`
 
 const TimeSubtitle = styled.div`
     text-align: center;
-    font-size: 5rem;
+    font-size: 4.5rem;
     margin-top: 1rem;
     font-family: 'Cabin';
     color: white;
@@ -82,17 +104,63 @@ const Time = styled.div`
     text-align: center;
     line-height: 5rem;
     font-family: 'Cabin';
-
-    &:after{
-        content: ""
-        display : block;
-        padding-bottom: 100%;
-    };
+    margin-top: 2rem;
 `;
 
 const TimeBox = styled.div`
+    display : flex;
+    flex-direction : column;
+`
+const TimeNum = styled.div`
     width: 8rem;
     height: 8rem;
     background: white;
-    border-radius: 2rem;
+    border-radius: 1rem;
+    line-height: 8rem;
+    font-family: 'Cabin';
+    font-weight: bold;
+    font-size: 4rem;
+    color: black;
+    
+    @media screen and (max-width: 500px){
+        width: 7rem;
+        height: 7rem;
+        line-height: 7rem;
+        font-size: 3.5rem;
+    }
+`
+const TimeText = styled.div`
+    text-align: center;
+    color: white;
+    font-family: 'Cabin';
+    font-size: 1.3rem;
+    margin-top: -1.5rem;
+`
+const TimeDot = styled.div`
+    font-size: 3.5rem;
+    color: white;
+    font-family: 'Cabin';
+    line-height: 7rem;
+    margin: 0 1rem;
+
+    @media screen and (max-width: 500px){
+        margin: 0 0.5rem;
+    }
+`
+
+const TimeBottom = styled.div`
+    text-align : center;
+    color: white;
+    font-family : 'Cabin';
+    font-size: 2.2rem;
+    margin-top: 5rem;
+
+    @media screen and (max-width: 500px){
+        font-size: 2rem;
+    }
+`
+
+const TimeImageBox = styled.div`
+    text-align: center;
+    margin-top: 1rem;
 `
