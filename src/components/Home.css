@@ -14,7 +14,6 @@ div {
   position: relative;
   background-color: black;
   color: white;
-  margin: 5rem 0;
   z-index: 1;
   opacity: 0;
 }
@@ -67,4 +66,48 @@ div {
 .HomeContainerScrolled {
   opacity: 1;
   transition: 5s;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-250px * 9))}
+}
+
+.slider{
+	height: 50px;
+	overflow:hidden;
+	position: relative;
+	width: 960px;
+  background: #FAFF00;
+}
+.slider-track{
+  height: 50px;
+  position: relative;
+  width: calc(20rem * 24);
+  overflow-x: hidden;
+  display: flex;
+  animation: scroll 15s linear infinite;
+}
+.slide {
+  width: fit-content;
+  height: inherit;
+  left: 0%;
+  top: 0%;
+  text-align: center;
+  color: black;
+  background: #FAFF00;
+  line-height: 50px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin: 0 3rem;
+  font-family: 'Cabin', sans-serif;
+}
+.slide-icon{
+  display: flex;
+  align-items: center;
+}
+.slide-icon > img{
+  width: 2rem;
+  height: 2rem;
+  margin: 0;
 }
