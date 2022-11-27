@@ -67,21 +67,18 @@ export default function Vote() {
     const nominationIndex = ['1', '2', '3', '4'];
 
     const [btnActive, setBtnActive] = useState({
-        TV_OTT : '',
-        CONTENT : '',
-        SNS_COMMUNITY : '',
-        MEMEPOSE : '',
-        CHALLENGE : '',
-        CHARACTER : ''
+        'TV/OTT' : '',
+        'CONTENT' : '',
+        'SNS_COMMUNITY' : '',
+        'MEMEPOSE' : '',
+        'CHALLENGE' : '',
+        'CHARACTER' : ''
     });
 
-    const toggleActive = (e, part) => {     // 각 후보에 해당하는 DIV toggle용
-        if (btnActive[part] == e.target.value){
-            setBtnActive({
-                ...btnActive,
-                [part] : "",
-            });
-        }else{
+    const toggleActive = (e, part) => {  // 각 후보에 해당하는 DIV toggle용
+        console.log(btnActive);
+        console.log(e.target.value);
+        if (btnActive[part] == ''){
         setBtnActive({
             ...btnActive,
             [part]: e.target.value,
@@ -222,9 +219,9 @@ export default function Vote() {
                             return(
                                 <Nomination
                                     value={`${item.part}` + `${idx + 1}`}
-                                    className={item.part + (btnActive == (`${item.part}` + `${idx + 1}`) ? " active" : "")}
+                                    className={item.part+`${idx + 1}` + (btnActive[item.part] == (`${item.part}` + `${idx + 1}`) ? " active" : "")}
                                     key={item.title + idx}
-                                    onClick={(e) => checkVote(item.meme[idx], e, item.part)}>
+                                    onClick={(e) => checkVote(item.meme[idx], e, `${item.part}`)}>
                                         {item.meme[idx]}
                                 </Nomination>)
                             })}
