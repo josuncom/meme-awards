@@ -1,24 +1,17 @@
 import { useEffect, useState, React } from "react";
 import '../components/Vote.css';
-import { useCookies } from "react-cookie";
-import moment from "moment/moment";
 import { getFirestore, getDoc, setDoc, doc, updateDoc, increment } from "firebase/firestore";
 import styled from "styled-components";
 
 import Guide from '../image/Vote_intro.png';
+import Done from '../image/vote_done.png';
 
 export default function Vote() {
-    const [idolVoted, setIdolVoted] = useState("");
-    const [poseVoted, setPoseVoted] = useState("");
-    const [canVote, setCanVote] = useState(false);
     const [scrollHeight, setScrollHeight] = useState(0);
-
-    const COOKIE_KEYS = 'isVoted';
-    const [cookies, setCookies] = useCookies([COOKIE_KEYS]);
 
     const descriptions = {
         'TV_OTT' : {
-            part : 'TV/OTT',
+            part : 'TV_OTT',
             title : 'TV/OTT 부문',
             subtitle1 : '올해 방송 및 OTT 부문',
             subtitle2 : '가장 큰 호응을 이끌어낸 인상적인 장면',
@@ -67,7 +60,7 @@ export default function Vote() {
     const nominationIndex = ['1', '2', '3', '4'];
 
     const [btnActive, setBtnActive] = useState({
-        'TV/OTT' : '',
+        'TV_OTT' : '',
         'CONTENT' : '',
         'SNS_COMMUNITY' : '',
         'MEMEPOSE' : '',
@@ -76,8 +69,6 @@ export default function Vote() {
     });
 
     const toggleActive = (e, part) => {  // 각 후보에 해당하는 DIV toggle용
-        console.log(btnActive);
-        console.log(e.target.value);
         if (btnActive[part] == ''){
         setBtnActive({
             ...btnActive,
@@ -94,92 +85,55 @@ export default function Vote() {
     }
 
 
-    function voteMeme(memeType, targetMeme){      // 투표 반영
+    const voteMeme = async(memeType, memeName) => {      // 투표 반영
         const db = getFirestore();
-        const memeRefArray = doc(db, memeType, targetMeme);
-        
-        memeRefArray.forEach(async memeEle => {
-            const memeSnap = await getDoc(memeEle); 
-    
-            if (memeSnap.exists()) {
-                await updateDoc(memeEle, {
-                    count: increment(1)
-                });
-            } else {
-                console.log(memeEle);
-            try {
-                await setDoc(memeEle, {
-                    count : 1
-                });
-                console.log("Document written");
-                } catch (e) {
-                    console.error("Error adding document: ", e);
-                    }
-            }
+        const memeRefArray = doc(db, memeType, memeName);
+        await updateDoc(memeRefArray, {
+            count: increment(1)
         });
         updateTotalCount();
     }
 
-
-    const setData = () => {
-        const expireDay = moment();
-        expireDay.add(10, 'seconds');
-        
-        if (idolVoted !== "" && poseVoted !== ""){
-            if (cookies[COOKIE_KEYS]){
-                alert("이미 참여함!");
-            } else {
-                voteMeme(idolVoted, poseVoted);
-                setCookies(COOKIE_KEYS, 'true' , {
-                        path: '/',
-                        expires: expireDay.toDate(),
-                    });
-            }
-        } else{
-            alert('모든 부문에 투표해주세요!');
-        } 
-    }
-
-
-    // 각 부문 선택했는지 체크
-    const checkVote = (memeName, event, part) => {
+    const setData = (memeName, event, part) => {
         toggleActive(event, part);
         if (sessionStorage.getItem(part) === null){
-        sessionStorage.setItem(part, memeName);
-      } else{
-        console.log('aa');
-      }
+            sessionStorage.setItem(part, memeName);
+            voteMeme(part, memeName);
+        } else{
+            alert('이미 해당 부문에 투표했습니다!');
+        } 
     }
 
     // 투표 섹션 들어갔는지 스크롤 높이로 계산해서 판단
-    const handleScroll = () => {
-        let voteElement = document.querySelector('.HomeContainer');
-        let voteButton = document.querySelector('.HomeBoxIntro');
+    // const handleScroll = () => {
+    //     let voteElement = document.querySelector('.HomeContainer');
+    //     let voteButton = document.querySelector('.HomeBoxIntro');
         
-        let votestart = voteElement.getBoundingClientRect().top;
-        let voteEnd = voteButton.getBoundingClientRect().top - voteElement.getBoundingClientRect().bottom;
+    //     let votestart = voteElement.getBoundingClientRect().top;
+    //     let voteEnd = voteButton.getBoundingClientRect().top - voteElement.getBoundingClientRect().bottom;
 
-        let startScroll = votestart - window.scrollY;
-        let endScroll = voteEnd - window.scrollY;
+    //     let startScroll = votestart - window.scrollY;
+    //     let endScroll = voteEnd - window.scrollY;
 
-        if(startScroll <= 0 && endScroll >= 150){
-            setScrollHeight(1);
-        }else{
-            setScrollHeight(false);
-        } 
-        // console.log(scrollHeight);
-        // console.log(startScroll, endScroll);
-      };
+    //     if(startScroll <= 0 && endScroll >= 150){
+    //         setScrollHeight(1);
+    //     }else{
+    //         setScrollHeight(false);
+    //     } 
+    //     // console.log(scrollHeight);
+    //     // console.log(startScroll, endScroll);
+    //   };
 
 
     // 스크롤 높이 변할 때마다 state에 저장
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-        return () => {
-          window.removeEventListener('scroll', handleScroll); //clean up
-        };
-      }, [scrollHeight]);
+    // useEffect(() => {
+    //     window.addEventListener('scroll', handleScroll);
+    //     return () => {
+    //       window.removeEventListener('scroll', handleScroll); //clean up
+    //     };
+    //   }, [scrollHeight]);
 
+    
     // 새로고침 할 때마다 세션 스토리지 초기화해서 다시 투표할 수 있게 함
     useEffect(() => {
         window.addEventListener("beforeunload", ()=>{    
@@ -214,6 +168,7 @@ export default function Vote() {
                         {item.subtitle1}<br/>
                         {item.subtitle2}
                         </VotePartSubtitle>
+                        
                         <VoteBox>
                         {nominationIndex.map((items, idx) => {
                             return(
@@ -221,8 +176,9 @@ export default function Vote() {
                                     value={`${item.part}` + `${idx + 1}`}
                                     className={item.part+`${idx + 1}` + (btnActive[item.part] == (`${item.part}` + `${idx + 1}`) ? " active" : "")}
                                     key={item.title + idx}
-                                    onClick={(e) => checkVote(item.meme[idx], e, `${item.part}`)}>
+                                    onClick={(e) => setData(item.meme[idx], e, `${item.part}`)}>
                                         {item.meme[idx]}
+                                        <img src={Done}/>                               
                                 </Nomination>)
                             })}
                         </VoteBox> 
@@ -231,24 +187,14 @@ export default function Vote() {
 
             }
 
-            <div className="HomeBoxIntro" onClick={() => setData()}>
-                {cookies[COOKIE_KEYS] ?                         
-                <h1>
-                    이미 참여했습니다!
-                </h1> : (
-                <button>
-                    투표하기
-                </button>
-                )}
-            </div>
-            {scrollHeight ? ( 
+            {/* {scrollHeight ? ( 
                 <div className={canVote ? "footerButton active" : "footerButton inactive" } 
                      onClick={canVote ? () => setData() : null} >
                     투표하기
                 </div>
             ) : 
             <div className="footerButton">투표하기
-                </div>}
+                </div>} */}
             </VoteContainer>
         </>
     );
@@ -336,9 +282,11 @@ const Nomination = styled.button`
     font-size: 2rem;
     font-weight: bold;
     text-align: center;
-    height: 7rem;
+    height: 12rem;
     line-height: 7rem;
     cursor: pointer;
-    background: #ab9831;
+    background-color: #ab9831;
     transition: 0.1s;
+    border-radius: 1rem;
+    padding:0;
 `

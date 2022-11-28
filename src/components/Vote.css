@@ -48,8 +48,25 @@ div {
 }
 
 .active{
-  opacity: 0.5;
   color: white;
+  background-color: #1D1D1D !important;
+}
+/* .imgActive{
+  display: block;
+  opacity: 0.9;
+  background-image: url('../image/vote_done.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+} */
+button>img{
+  display: none;
+}
+.active>img{
+  display: block;
+  transform: translateY(-61%);
+  height: 12rem;
+  width: 100%;
 }
 
 .footerButton{
