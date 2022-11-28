@@ -1,13 +1,13 @@
-import { useEffect, useState, React } from "react";
+import { useEffect, useState, useRef, React } from "react";
 import '../components/Vote.css';
-import { getFirestore, getDoc, setDoc, doc, updateDoc, increment } from "firebase/firestore";
+import { getFirestore, doc, updateDoc, increment } from "firebase/firestore";
 import styled from "styled-components";
 
 import Guide from '../image/Vote_intro.png';
 import Done from '../image/vote_done.png';
 
 export default function Vote() {
-    const [scrollHeight, setScrollHeight] = useState(0);
+    const voteBoxRef = useRef([]);
 
     const descriptions = {
         'TV_OTT' : {
@@ -54,9 +54,6 @@ export default function Vote() {
         },
     }
 
-    
-
-    const memeType = ['TV_OTT', 'CONTENT', 'SNS_COMMUNITY', 'MEMEPOSE', 'CHALLENGE', 'CHARACTER'];
     const nominationIndex = ['1', '2', '3', '4'];
 
     const [btnActive, setBtnActive] = useState({
@@ -94,7 +91,7 @@ export default function Vote() {
         updateTotalCount();
     }
 
-    const setData = (memeName, event, part) => {
+    const setData = (memeName, event, part) => {    // 세션 스토리지 체크 후 아직 투표하지 않은 부문이면 투표 반영
         toggleActive(event, part);
         if (sessionStorage.getItem(part) === null){
             sessionStorage.setItem(part, memeName);
@@ -104,36 +101,22 @@ export default function Vote() {
         } 
     }
 
-    // 투표 섹션 들어갔는지 스크롤 높이로 계산해서 판단
-    // const handleScroll = () => {
-    //     let voteElement = document.querySelector('.HomeContainer');
-    //     let voteButton = document.querySelector('.HomeBoxIntro');
+    // 투표 시 다음 부문으로 스크롤
+    const handleScroll = (destination) => {
+        let voteBox1 = document.querySelector('.voteBox1');
+        let voteBox2 = document.querySelector('.voteBox2');
+        let voteBox3 = document.querySelector('.voteBox3');
+        let voteBox4 = document.querySelector('.voteBox4');
+        let voteBox5 = document.querySelector('.voteBox5');
+        let voteBox6 = document.querySelector('.voteBox6');
         
-    //     let votestart = voteElement.getBoundingClientRect().top;
-    //     let voteEnd = voteButton.getBoundingClientRect().top - voteElement.getBoundingClientRect().bottom;
+        let voteBoxPosition = [voteBox1, voteBox2, voteBox3, voteBox4, voteBox5, voteBox6];
 
-    //     let startScroll = votestart - window.scrollY;
-    //     let endScroll = voteEnd - window.scrollY;
+        if(destination.idx < 5){
+            voteBoxPosition[destination.idx + 1].scrollIntoView();
+        }
+      };
 
-    //     if(startScroll <= 0 && endScroll >= 150){
-    //         setScrollHeight(1);
-    //     }else{
-    //         setScrollHeight(false);
-    //     } 
-    //     // console.log(scrollHeight);
-    //     // console.log(startScroll, endScroll);
-    //   };
-
-
-    // 스크롤 높이 변할 때마다 state에 저장
-    // useEffect(() => {
-    //     window.addEventListener('scroll', handleScroll);
-    //     return () => {
-    //       window.removeEventListener('scroll', handleScroll); //clean up
-    //     };
-    //   }, [scrollHeight]);
-
-    
     // 새로고침 할 때마다 세션 스토리지 초기화해서 다시 투표할 수 있게 함
     useEffect(() => {
         window.addEventListener("beforeunload", ()=>{    
@@ -160,7 +143,7 @@ export default function Vote() {
             {  
                 Object.values(descriptions).map((item, idx) => {
                     return(
-                    <div key={idx}>
+                    <div className={'voteBox'+(idx+1)} key={idx} ref={voteBoxRef[idx]} onClick={() => handleScroll({idx})}>
                         <VotePartTitle>
                         {item.title}
                         </VotePartTitle>
@@ -186,15 +169,6 @@ export default function Vote() {
                 )})
 
             }
-
-            {/* {scrollHeight ? ( 
-                <div className={canVote ? "footerButton active" : "footerButton inactive" } 
-                     onClick={canVote ? () => setData() : null} >
-                    투표하기
-                </div>
-            ) : 
-            <div className="footerButton">투표하기
-                </div>} */}
             </VoteContainer>
         </>
     );

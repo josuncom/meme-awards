@@ -190,7 +190,6 @@ const BannerImg = styled.img`
     width: 100%;
     margin: 0;
 `;
-
 const HomeText = styled.div`
     text-align: center;
     font-size: 1.6rem;
@@ -201,7 +200,6 @@ const HomeText = styled.div`
     padding: 2rem 3rem;
     padding-bottom: 5rem;
 `
-
 const HomeMainTtitle = styled.div`
     font-size: 5rem;
     color: #FAFF00;
@@ -217,9 +215,7 @@ const HomeMainText = styled.div`
     @media screen and (max-width: 500px){
         font-size: 4.5rem;
     }
-
 `
-
 const HomeSubText= styled.div`
     font-size: 1.5rem;
     font-weight: 100;

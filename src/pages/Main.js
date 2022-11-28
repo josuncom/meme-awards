@@ -5,7 +5,6 @@ import Home from "./Home";
 import Clock from "./Clock";
 import Vote from "./Vote";
 import Footer from "../components/Footer";
-import Connect from "./Connect";
 import Top2 from "./Top2";
 import "../components/Main.css";
 
@@ -25,7 +24,6 @@ export default function Main(){
         <Top2/>
         <Clock/>
         <Vote/>
-        <Connect/>
         <Footer/>
     </Fragment>
   )

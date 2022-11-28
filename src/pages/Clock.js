@@ -1,25 +1,31 @@
-import { React, useState, useEffect} from "react";
+import { React, useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 
 import CircleDown from '../image/Clock_circle_down.png';
 
 export default function(){
+    const timer = useRef(null);
+
     const voteEndTime = new Date("2022-12-08");
     const todayTime = new Date();
     const remainingTime = voteEndTime - todayTime;
     
+    const [time, setTime] = useState(remainingTime);
     const [day, setDay] = useState("");
     const [hour, setHour] = useState("");
     const [minute, setMinute] = useState("");
     const [second, setSecond] = useState("");
+    
+    // console.log(remainingTime);
 
     useEffect(() => {
-        const diffDay = Math.floor(remainingTime / (1000*60*60*24));
-        const diffHour = Math.floor((remainingTime / (1000*60*60)) % 24);
-        const diffMin = Math.floor((remainingTime / (1000*60)) % 60);
-        const diffSec = Math.floor(remainingTime / 1000 % 60);
+        const diffDay = Math.floor(time / (1000*60*60*24));
+        const diffHour = Math.floor((time / (1000*60*60)) % 24);
+        const diffMin = Math.floor((time / (1000*60)) % 60);
+        const diffSec = Math.floor(time / 1000 % 60);
 
         const id = setInterval(() => {
+          setTime(time - 1000);
           setDay(diffDay)
           setHour(diffHour);
           setMinute(diffMin);
@@ -28,7 +34,7 @@ export default function(){
         // 1초마다 실행되는 인터벌을 이용해 1초마다 다시 랜더링 시켜줌
         return () => clearInterval(id);
         // 페이지를 벗어나게되면 반복을 종료해줌
-      }, [remainingTime]);
+      }, [time]);
 
       return(
         <TimeContainer>
