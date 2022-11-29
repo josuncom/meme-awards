@@ -14,101 +14,103 @@ export default function Home() {
       <div className="HomeContainer HomeContainerScrolled">
         <div className="slider">
           <div className="slider-track">
-            <div className="slide">우to the영to the우!</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon1} />
-            </div>
-            <div className="slide">너 뭐 돼?</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon2} />
-            </div>
-            <div className="slide">킹받드라슈</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon3} />
-            </div>
-            <div className="slide">내일 봬요 누나</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon1} />
-            </div>
-            <div className="slide">재즈가 뭐라고 생각하세요?</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon2} />
-            </div>
-            <div className="slide">저는 ?? 아티스트예요.</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon3} />
-            </div>
-            <div className="slide">너 납치 된거야</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon1} />
-            </div>
-            <div className="slide">내 장점이 뭔 지 알아?</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon2} />
-            </div>
-            <div className="slide">ㄴ겟냐</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon3} />
-            </div>
-            <div className="slide">어이~ 강프로, 식사는 잡쉈어?</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon1} />
-            </div>
-            <div className="slide">하남자 특</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon2} />
-            </div>
-            <div className="slide">그잡채</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon3} />
-            </div>
-            <div className="slide">우to the영to the우!</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon1} />
-            </div>
-            <div className="slide">너 뭐 돼?</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon2} />
-            </div>
-            <div className="slide">킹받드라슈</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon3} />
-            </div>
-            <div className="slide">내일 봬요 누나</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon1} />
-            </div>
-            <div className="slide">재즈가 뭐라고 생각하세요?</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon2} />
-            </div>
-            <div className="slide">저는 ?? 아티스트예요.</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon3} />
-            </div>
-            <div className="slide">너 납치 된거야</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon1} />
-            </div>
-            <div className="slide">내 장점이 뭔 지 알아?</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon2} />
-            </div>
-            <div className="slide">ㄴ겟냐</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon3} />
-            </div>
-            <div className="slide">어이~ 강프로, 식사는 잡쉈어?</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon1} />
-            </div>
-            <div className="slide">하남자 특</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon2} />
-            </div>
-            <div className="slide">그잡채</div>
-            <div className="slide-icon">
-              <img className="slide-icon" src={slideIcon3} />
+            <div>
+              <div className="slide">우to the영to the우!</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon1} />
+              </div>
+              <div className="slide">너 뭐 돼?</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon2} />
+              </div>
+              <div className="slide">킹받드라슈</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon3} />
+              </div>
+              <div className="slide">내일 봬요 누나</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon1} />
+              </div>
+              <div className="slide">재즈가 뭐라고 생각하세요?</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon2} />
+              </div>
+              <div className="slide">저는 ?? 아티스트예요.</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon3} />
+              </div>
+              <div className="slide">너 납치 된거야</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon1} />
+              </div>
+              <div className="slide">내 장점이 뭔 지 알아?</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon2} />
+              </div>
+              <div className="slide">ㄴ겟냐</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon3} />
+              </div>
+              <div className="slide">어이~ 강프로, 식사는 잡쉈어?</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon1} />
+              </div>
+              <div className="slide">하남자 특</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon2} />
+              </div>
+              <div className="slide">그잡채</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon3} />
+              </div>
+              <div className="slide">우to the영to the우!</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon1} />
+              </div>
+              <div className="slide">너 뭐 돼?</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon2} />
+              </div>
+              <div className="slide">킹받드라슈</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon3} />
+              </div>
+              <div className="slide">내일 봬요 누나</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon1} />
+              </div>
+              <div className="slide">재즈가 뭐라고 생각하세요?</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon2} />
+              </div>
+              <div className="slide">저는 ?? 아티스트예요.</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon3} />
+              </div>
+              <div className="slide">너 납치 된거야</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon1} />
+              </div>
+              <div className="slide">내 장점이 뭔 지 알아?</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon2} />
+              </div>
+              <div className="slide">ㄴ겟냐</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon3} />
+              </div>
+              <div className="slide">어이~ 강프로, 식사는 잡쉈어?</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon1} />
+              </div>
+              <div className="slide">하남자 특</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon2} />
+              </div>
+              <div className="slide">그잡채</div>
+              <div className="slide-icon">
+                <img className="slide-icon" src={slideIcon3} />
+              </div>
             </div>
           </div>
         </div>

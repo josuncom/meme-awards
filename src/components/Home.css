@@ -1,10 +1,13 @@
 /* 폰트 */
 @font-face {
-  font-family: 'GmarketSansMedium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-family: "GmarketSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;1,600&family=Montserrat:wght@500&display=swap");
 
 div {
   font-family: "Noto Sans KR", sans-serif;
@@ -69,45 +72,60 @@ div {
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-	100% { transform: translateX(calc(-250px * 9))}
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-.slider{
-	height: 50px;
-	overflow:hidden;
-	position: relative;
-	width: 960px;
-  background: #FAFF00;
-}
-.slider-track{
-  height: 50px;
-  position: relative;
-  width: calc(20rem * 24);
-  overflow-x: hidden;
+.slider {
   display: flex;
-  animation: scroll 15s linear infinite;
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  width: 960px;
+  background: #faff00;
+  z-index: 1;
+}
+.slider-track {
+  display: flex;
+  height: 50px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  justify-content: flex-start;
+  align-items: center;
+  transition: all 1s ease;
+}
+.slider-track > div {
+  display: flex;
+  animation: scroll 20s linear infinite;
 }
 .slide {
-  width: fit-content;
+  width: max-content;
   height: inherit;
   left: 0%;
   top: 0%;
   text-align: center;
   color: black;
-  background: #FAFF00;
+  background: #faff00;
   line-height: 50px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  margin: 0 3rem;
-  font-family: 'Cabin', sans-serif;
+  margin: 0 2rem;
+  font-family: "GmarketSansMedium";
 }
-.slide-icon{
+.slide-icon {
   display: flex;
   align-items: center;
 }
-.slide-icon > img{
-  width: 2rem;
-  height: 2rem;
+.slide-icon > img {
+  width: 1.5rem;
+  height: 1.5rem;
   margin: 0;
 }

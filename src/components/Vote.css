@@ -47,53 +47,31 @@ div {
   margin-left: 37%;
 }
 
-.active{
+.active {
   color: white;
-  background-color: #1D1D1D !important;
+  background-color: #1d1d1d !important;
 }
-/* .imgActive{
-  display: block;
-  opacity: 0.9;
-  background-image: url('../image/vote_done.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-} */
-button>img{
+div > .vote-done-image {
   display: none;
 }
-.active>img{
+.active > .vote-done-image {
   display: block;
-  transform: translateY(-61%);
+  transform: translateY(0%);
   height: 12rem;
-  width: 100%;
+  position: absolute;
+}
+.meme-image {
+  flex: 1;
+  height: inherit;
+}
+.meme-info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
 }
 
-.footerButton{
-  position: fixed;
-  width: 15rem;
-  bottom: 30px;
-  transition: transform .5s cubic-bezier(.47,1.64,.41,.8);
-  transform: translate(-50%);
-  transform: translate(0, 100px);
-  left: 50%;
-  opacity: 1;
-  height: 5rem;
-  text-align: center;
-  line-height: 5rem;
-  border-radius: 2rem;
-  font-family: 'GmarketSansMedium';
-}
-.footerButton.active,
-.footerButton.inactive{
-  transition: transform .5s cubic-bezier(.47,1.64,.41,.8);
-  transform: translate(-50%);
-  background: green;
-  color: black;
-  z-index : 999;
-  opacity: 1 !important;
-}
-
-.footerButton.inactive{
-  background: gray;
+@media screen and (max-width: 500px) {
+  .active > .vote-done-image {
+    width: 80%;
+  }
 }

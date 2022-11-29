@@ -95,11 +95,13 @@ export default function Vote() {
   });
 
   const toggleActive = (e, part) => {
+    console.log(e.target.parentNode.parentNode.getAttribute("value"));
+    console.log(part);
     // 각 후보에 해당하는 DIV toggle용
-    if (btnActive[part] == "") {
+    if (btnActive[part] === "") {
       setBtnActive({
         ...btnActive,
-        [part]: e.target.value,
+        [part]: e.target.parentNode.parentNode.getAttribute("value"),
       });
     }
   };
@@ -139,7 +141,7 @@ export default function Vote() {
   };
 
   // 투표 시 시간차를 두고 다음 부문으로 스크롤
-  const handleScroll = (destination) => {
+  const handleScroll = (destination, item) => {
     let voteBox1 = document.querySelector(".voteBox1");
     let voteBox2 = document.querySelector(".voteBox2");
     let voteBox3 = document.querySelector(".voteBox3");
@@ -148,20 +150,24 @@ export default function Vote() {
     let voteBox6 = document.querySelector(".voteBox6");
 
     let voteBoxPosition = [
-      voteBox1,
-      voteBox2,
-      voteBox3,
-      voteBox4,
-      voteBox5,
-      voteBox6,
+      voteBox1.offsetTop,
+      voteBox2.offsetTop,
+      voteBox3.offsetTop,
+      voteBox4.offsetTop,
+      voteBox5.offsetTop,
+      voteBox6.offsetTop,
     ];
 
-    if (destination.idx < 5) {
+    if (
+      destination.idx < 5 &&
+      sessionStorage.getItem(destination.item.part) != null
+    ) {
       setTimeout(() => {
-        voteBoxPosition[destination.idx + 1].scrollIntoView({
-          behavior: "smooth",
-        });
-      }, 2000);
+        window.scrollTo(
+          voteBoxPosition[destination.idx + 1] - 100,
+          voteBoxPosition[destination.idx + 1] - 100
+        );
+      }, 500);
     }
   };
 
@@ -184,7 +190,11 @@ export default function Vote() {
         <VoteIntro>
           <VoteTitle>START VOTING</VoteTitle>
           <VoteSubtitle>투표? 가보자고</VoteSubtitle>
-          <img style={{ width: "80%", margin: "5% 10% 3% 10%" }} src={Guide} />
+          <img
+            alt="투표관련정보"
+            style={{ width: "80%", margin: "5% 10% 3% 10%" }}
+            src={Guide}
+          />
           <VoteCounter>
             현재 총 투표수 <VoteCount>{totalVoteCount}</VoteCount>
           </VoteCounter>
@@ -196,7 +206,7 @@ export default function Vote() {
               className={"voteBox" + (idx + 1)}
               key={idx}
               ref={voteBoxRef[idx]}
-              onClick={() => handleScroll({ idx })}
+              onClick={() => handleScroll({ idx, item })}
             >
               <VotePartTitle>{item.title}</VotePartTitle>
               <VotePartSubtitle>
@@ -209,11 +219,11 @@ export default function Vote() {
                 {nominationIndex.map((items, idx) => {
                   return (
                     <Nomination
-                      value={`${item.part}` + `${idx + 1}`}
+                      value={`${item.part}${idx + 1}`}
                       className={
                         item.part +
                         `${idx + 1}` +
-                        (btnActive[item.part] == `${item.part}` + `${idx + 1}`
+                        (btnActive[item.part] === `${item.part}${idx + 1}`
                           ? " active"
                           : "")
                       }
@@ -222,8 +232,19 @@ export default function Vote() {
                         setData(item.meme[idx], e, `${item.part}`)
                       }
                     >
-                      {item.meme[idx]}
-                      <img src={Done} />
+                      <img
+                        className="meme-image"
+                        src={require(`../image/${item.part}${idx + 1}.png`)}
+                      />
+                      <div className="meme-info">
+                        <div className="meme-name">{item.meme[idx]}</div>
+                        <div className="meme-count">1233표</div>
+                      </div>
+                      <img
+                        className="vote-done-image"
+                        alt="투표완료"
+                        src={Done}
+                      />
                     </Nomination>
                   );
                 })}
@@ -318,19 +339,21 @@ const VoteBox = styled.div`
   margin-bottom: 10rem;
   line-height: 5rem;
 `;
-const Nomination = styled.button`
+const Nomination = styled.div`
+  display: flex;
   width: 90%;
   margin: auto;
   margin-top: 1rem;
-  color: black;
-  font-size: 2rem;
+  color: white;
+  font-size: 1rem;
   font-weight: bold;
   text-align: center;
   height: 12rem;
   line-height: 7rem;
   cursor: pointer;
-  background-color: #ab9831;
+  background-color: #1d1d1d;
   transition: 0.1s;
   border-radius: 1rem;
   padding: 0;
+  z-index: 99;
 `;
