@@ -1,0 +1,15 @@
+.topMeme,
+.memeCount {
+  width: 50%;
+}
+
+.topMeme {
+  color: white;
+  font-size: 2rem;
+}
+
+.memeCount {
+  color: #faff00;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
