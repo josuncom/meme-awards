@@ -12,6 +12,7 @@ import styled from "styled-components";
 import Guide from "../image/Vote_intro.png";
 import Done from "../image/vote_done.png";
 
+
 const getTotalVoteCount = async () => {
   let totalCount = 0;
 
@@ -26,6 +27,7 @@ const getTotalVoteCount = async () => {
 
 export default function Vote() {
   const [totalVoteCount, setTotalVoteCount] = useState(0);
+  const [patrialVotecount, setPartialVotecount] = useState(0);
 
   const voteBoxRef = useRef([]);
   const descriptions = {
@@ -119,6 +121,15 @@ export default function Vote() {
     });
   };
 
+  const getCurrentCount = async(targetMeme) => {
+    const db = getFirestore();
+    const docRef = doc(db, "TOTAL", targetMeme);
+    const docSnap = await getDoc(docRef);
+    
+    console.log(docSnap.data())
+    return docSnap.data();
+  }
+
   const voteMeme = async (memeType, memeName) => {
     // 투표 반영
     const db = getFirestore();
@@ -184,6 +195,10 @@ export default function Vote() {
     });
   }, []);
 
+  useEffect(() =>{
+    
+  })
+
   return (
     <>
       <VoteContainer>
@@ -238,7 +253,7 @@ export default function Vote() {
                       />
                       <div className="meme-info">
                         <div className="meme-name">{item.meme[idx]}</div>
-                        <div className="meme-count">1233표</div>
+                        <div className="meme-count">{JSON.stringify(getCurrentCount(item.meme[idx]))}</div>
                       </div>
                       <img
                         className="vote-done-image"
