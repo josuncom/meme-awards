@@ -1,16 +1,22 @@
 /* 폰트 */
 @font-face {
-  font-family: "GmarketSansMedium";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-    format("woff");
+  font-family: 'SUITM';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;1,600&family=Montserrat:wght@500&display=swap");
+@font-face {
+  font-family: 'SUITB';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
 
-div {
-  font-family: "Noto Sans KR", sans-serif;
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
 }
 
 .HomeContainer {
@@ -118,7 +124,7 @@ div {
   font-size: 1.8rem;
   font-weight: bold;
   margin: 0 2rem;
-  font-family: "GmarketSansMedium";
+  font-family: "Noto Sans KR', sans-serif";
 }
 .slide-icon {
   display: flex;

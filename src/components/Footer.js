@@ -23,6 +23,8 @@ const EmailBox = styled.div`
   color: white;
   margin-left: 5%;
   margin-top: 3rem;
+  font-family: 'SUITM';
+
   @media screen and (max-width: 500px) {
     font-size: 2rem;
   }
@@ -36,6 +38,7 @@ const BrandBox = styled.div`
   margin-left: 5%;
   margin-top: 7rem;
   font-weight: lighter;
+  font-family: 'SUITM';
 
   @media screen and (max-width: 500px) {
     font-size: 1.5rem;

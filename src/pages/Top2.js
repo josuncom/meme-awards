@@ -78,14 +78,15 @@ const Top2Title = styled.div`
   color: #faff00;
   font: "Cabin";
   font-size: 2rem;
-  font-family: "Cabin";
+  font-family: "SUITM";
   letter-spacing: 1px;
+  font-weight: bold
 `;
 const Top2Subtitle = styled.div`
   text-align: center;
   font-size: 5rem;
   margin-top: 1rem;
-  font-family: "Cabin";
+  font-family: "SUITM";
   color: white;
   font-weight: bold;
   line-height: 6rem;

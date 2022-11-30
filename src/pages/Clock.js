@@ -86,15 +86,16 @@ const TimeTitle = styled.div`
   color: #faff00;
   font: "Cabin";
   font-size: 2rem;
-  font-family: "Cabin";
+  font-family: "SUITM";
   letter-spacing: 1px;
+  font-weight: bold;
 `;
 
 const TimeSubtitle = styled.div`
   text-align: center;
   font-size: 4.5rem;
   margin-top: 1rem;
-  font-family: "Cabin";
+  font-family: "SUITM";
   color: white;
   font-weight: bold;
   line-height: 6rem;
@@ -107,7 +108,7 @@ const Time = styled.div`
   font-size: 2rem;
   text-align: center;
   line-height: 5rem;
-  font-family: "Cabin";
+  font-family: "SUITM";
   margin-top: 2rem;
 `;
 
@@ -121,7 +122,7 @@ const TimeNum = styled.div`
   background: white;
   border-radius: 1rem;
   line-height: 8rem;
-  font-family: "Cabin";
+  font-family: "SUITM";
   font-weight: bold;
   font-size: 4rem;
   color: black;
@@ -136,14 +137,14 @@ const TimeNum = styled.div`
 const TimeText = styled.div`
   text-align: center;
   color: white;
-  font-family: "Cabin";
+  font-family: "SUITM";
   font-size: 1.3rem;
   margin-top: -1.5rem;
 `;
 const TimeDot = styled.div`
   font-size: 3.5rem;
   color: white;
-  font-family: "Cabin";
+  font-family: "SUITM";
   line-height: 7rem;
   margin: 0 1rem;
 
@@ -155,7 +156,7 @@ const TimeDot = styled.div`
 const TimeBottom = styled.div`
   text-align: center;
   color: white;
-  font-family: "Cabin";
+  font-family: "SUITM";
   font-size: 2.2rem;
   margin-top: 5rem;
 

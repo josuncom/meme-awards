@@ -2,51 +2,6 @@ div {
   font-family: "Noto Sans KR", sans-serif;
 }
 
-.AboutContainer {
-  background-color: black;
-  color: white;
-  height: 50rem;
-  padding-top: 150px;
-}
-
-.AboutContainer h1 {
-  color: rgb(146, 142, 142);
-  font-weight: 800;
-}
-
-.AboutContainerTitle {
-  font-size: 40px;
-  text-align: center;
-}
-.AboutBox {
-  display: grid;
-  grid-template-columns: 50% 50%;
-}
-
-.WhoAmI {
-  margin-top: 12%;
-  font-size: 18px;
-  font-weight: 200;
-  text-align: center;
-}
-
-.WhatILike {
-  margin-top: 12%;
-  font-size: 18px;
-  font-weight: 200;
-  text-align: center;
-}
-
-.typeLike {
-  font-size: 18px;
-  margin-top: 12%;
-}
-
-.AboutLine {
-  width: 200px;
-  margin-left: 37%;
-}
-
 .active {
   color: white;
   background-color: #1d1d1d !important;
@@ -69,9 +24,25 @@ div > .vote-done-image {
   display: flex;
   flex-direction: column;
 }
+.meme-name{
+  text-align: left;
+  margin-left: 2rem;
+  font-size: 1.8rem;
+  height: 50%;
+}
+.meme-count{
+  height: 50%;
+}
 
 @media screen and (max-width: 500px) {
   .active > .vote-done-image {
     width: 80%;
   }
+  .meme-name{
+    text-align: left;
+    margin-left: 1rem;
+    font-size: 1.3rem;
+    height: 50%;
+  }
+
 }

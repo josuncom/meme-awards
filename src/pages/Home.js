@@ -152,7 +152,7 @@ const BannerImg = styled.img`
 const HomeText = styled.div`
   text-align: center;
   font-size: 1.6rem;
-  font-family: "Cabin", sans-serif !important;
+  font-family: "SUITM";
   text-align: left;
   font-weight: bold;
   background: #1d1d1d;
@@ -164,12 +164,12 @@ const HomeMainTtitle = styled.div`
   color: #faff00;
   margin-top: 5rem;
   line-height: 5rem;
-  font-family: "Cabin", sans-serif !important;
+  font-family: "SUITM";
 `;
 const HomeMainText = styled.div`
   margin-top: 5rem;
   font-size: 5.5rem;
-  font-family: "Cabin", sans-serif !important;
+  font-family: "SUITM";
 
   @media screen and (max-width: 500px) {
     font-size: 4.5rem;
@@ -178,7 +178,6 @@ const HomeMainText = styled.div`
 const HomeSubText = styled.div`
   font-size: 1.5rem;
   font-weight: 100;
-  font-family: "Cabin", sans-serif !important;
   line-height: 3rem;
   @media screen and (max-width: 500px) {
     font-size: 1.3rem;

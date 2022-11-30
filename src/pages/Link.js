@@ -58,7 +58,7 @@ export default function Link() {
             window.open(memeTestUrl);
           }}
         >
-          <div style={{ marginLeft: "2rem", flex: "7" }}>
+          <div style={{ marginLeft: "2rem", flex: "7", fontFamily:'SUITM' }}>
             twitter @banggooso
           </div>
           <div style={{ flex: "1" }}>〉</div>
@@ -85,14 +85,15 @@ const LinkTitle = styled.div`
   color: #faff00;
   font: "Cabin";
   font-size: 2rem;
-  font-family: "Cabin";
+  font-family: "SUITM";
   letter-spacing: 1px;
+  font-weight: bold;
 `;
 const LinkSubtitle = styled.div`
   text-align: center;
   font-size: 5rem;
   margin-top: 1rem;
-  font-family: "Cabin";
+  font-family: "SUITM";
   color: white;
   font-weight: bold;
   line-height: 6rem;
@@ -105,7 +106,7 @@ const LinkSubtitle = styled.div`
 const LiveTime = styled.div`
   text-align: center;
   color: #faff00;
-  font-family: "Cabin";
+  font-family: "SUITM";
   font-size: 3rem;
   margin-top: 2rem;
   font-weight: bold;
@@ -119,7 +120,7 @@ const LinkBox = styled.div`
   background: #faff00;
   margin-top: 3rem;
   cursor: pointer;
-  font-family: "Cabin";
+  font-family: "SUITM";
   font-weight: bold;
   font-size: 2rem;
   padding: 3rem 1rem;
@@ -140,7 +141,7 @@ const ContactLinkBox = styled.div`
   background: #1d1d1d;
   margin-top: 3rem;
   cursor: pointer;
-  font-family: "Cabin";
+  font-family: "SUITM";
   font-size: 2rem;
   padding: 3rem 1rem;
   border-radius: 0.5rem;

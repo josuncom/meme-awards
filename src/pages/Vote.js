@@ -266,7 +266,7 @@ const VoteIntro = styled.div``;
 const VoteCounter = styled.div`
   text-align: center;
   color: #faff00;
-  font-family: "Cabin";
+  font-family: "SUITM";
   font-size: 2.5rem;
   margin-bottom: 7rem;
 `;
@@ -285,17 +285,17 @@ const HorizonalLine = styled.hr`
 const VoteTitle = styled.div`
   text-align: center;
   color: #faff00;
-  font: "Cabin";
   font-size: 2rem;
-  font-family: "Cabin";
+  font-family: "SUITM";
   letter-spacing: 1px;
+  font-weight: bold;
 `;
 
 const VoteSubtitle = styled.div`
   text-align: center;
   font-size: 5rem;
   margin-top: 1rem;
-  font-family: "Cabin";
+  font-family: "SUITM";
   color: white;
   font-weight: bold;
   line-height: 6rem;
@@ -311,7 +311,7 @@ const VotePartTitle = styled.div`
   text-align: left;
   margin-bottom: 1rem;
   margin-left: 10%;
-  font-family: "Cabin";
+  font-family: "SUITM";
   font-weight: bolder;
 
   @media screen and (max-width: 500px) {
@@ -321,7 +321,7 @@ const VotePartTitle = styled.div`
 const VotePartSubtitle = styled.div`
   text-align: left;
   margin-left: 10%;
-  font-family: "Cabin";
+  font-family: "SUITM";
   font-weight: lighter;
   color: white;
   font-size: 1.7rem;
@@ -356,4 +356,8 @@ const Nomination = styled.div`
   border-radius: 1rem;
   padding: 0;
   z-index: 99;
+
+  @media screen and (max-width: 500px) {
+    height: 10rem;
+  }
 `;
