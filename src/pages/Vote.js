@@ -181,6 +181,14 @@ export default function Vote() {
           voteBoxPosition[destination.idx + 1] - 100
         );
       }, 500);
+    } else if (
+      destination.idx === 5 &&
+      sessionStorage.getItem(destination.item.part) != null
+    ) {
+      window.scrollTo(
+        voteBoxPosition[destination.idx] + 700,
+        voteBoxPosition[destination.idx] + 700
+      );
     }
   };
 

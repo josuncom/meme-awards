@@ -13,12 +13,12 @@ function Footer() {
       <HorizonalLine />
       <EmailBox>✉ info@banggooso.com</EmailBox>
       <BrandBox>Copyright © 2022 SoftSphere.</BrandBox>
-      <div class="adminActions">
-        <input type="checkbox" name="adminToggle" class="adminToggle" />
-        <a class="share-button" href="#!">
+      <div className="adminActions">
+        <input type="checkbox" name="adminToggle" className="adminToggle" />
+        <a className="share-button" href="#!">
           <ShareImage src={Share} />
         </a>
-        <div class="adminButtons">
+        <div className="adminButtons">
           <a href="#" title="Edit User">
             URL
           </a>
