@@ -80,7 +80,7 @@ const Top2Title = styled.div`
   font-size: 2rem;
   font-family: "SUITM";
   letter-spacing: 1px;
-  font-weight: bold
+  font-weight: bold;
 `;
 const Top2Subtitle = styled.div`
   text-align: center;

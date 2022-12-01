@@ -1,5 +1,11 @@
 import React from "react";
 import styled from "styled-components";
+import "../pages/css/Footer.css";
+
+import Share from "../image/share.png";
+import Kakao from "../image/kakao.png";
+import Insta from "../image/insta.png";
+import Twitter from "../image/twitter.png";
 
 function Footer() {
   return (
@@ -7,6 +13,26 @@ function Footer() {
       <HorizonalLine />
       <EmailBox>✉ info@banggooso.com</EmailBox>
       <BrandBox>Copyright © 2022 SoftSphere.</BrandBox>
+      <div class="adminActions">
+        <input type="checkbox" name="adminToggle" class="adminToggle" />
+        <a class="share-button" href="#!">
+          <ShareImage src={Share} />
+        </a>
+        <div class="adminButtons">
+          <a href="#" title="Edit User">
+            URL
+          </a>
+          <a href="#" title="Add User">
+            <ShareImage src={Insta} />
+          </a>
+          <a href="#" title="Edit Company">
+            <ShareImage src={Twitter} />
+          </a>
+          <a href="#" title="Add Company">
+            <ShareImage src={Kakao} />
+          </a>
+        </div>
+      </div>
     </FooterContainer>
   );
 }
@@ -23,7 +49,7 @@ const EmailBox = styled.div`
   color: white;
   margin-left: 5%;
   margin-top: 3rem;
-  font-family: 'SUITM';
+  font-family: "SUITM";
 
   @media screen and (max-width: 500px) {
     font-size: 2rem;
@@ -38,7 +64,7 @@ const BrandBox = styled.div`
   margin-left: 5%;
   margin-top: 7rem;
   font-weight: lighter;
-  font-family: 'SUITM';
+  font-family: "SUITM";
 
   @media screen and (max-width: 500px) {
     font-size: 1.5rem;
@@ -47,4 +73,14 @@ const BrandBox = styled.div`
 const HorizonalLine = styled.hr`
   color: white;
   width: 100%;
+`;
+
+const ShareImage = styled.img`
+  width: 3rem;
+  margin: 1.5rem;
+
+  @media screen and (max-width: 500px) {
+    width: 2rem;
+    margin: 1.25rem;
+  }
 `;

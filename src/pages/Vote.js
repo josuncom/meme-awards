@@ -6,12 +6,13 @@ import {
   updateDoc,
   increment,
   getDoc,
+  getDocs,
+  collection,
 } from "firebase/firestore";
 import styled from "styled-components";
 
 import Guide from "../image/Vote_intro.png";
 import Done from "../image/vote_done.png";
-
 
 const getTotalVoteCount = async () => {
   let totalCount = 0;
@@ -25,9 +26,21 @@ const getTotalVoteCount = async () => {
   return totalCount;
 };
 
+const getCurrentCount = async () => {
+  let countArray = {};
+
+  const db = getFirestore();
+  const docSnap = await getDocs(collection(db, "TOTAL"));
+  docSnap.forEach((doc) => {
+    countArray[doc.id] = doc.data();
+  });
+
+  return countArray;
+};
+
 export default function Vote() {
   const [totalVoteCount, setTotalVoteCount] = useState(0);
-  const [patrialVotecount, setPartialVotecount] = useState(0);
+  const [partialVoteCount, setPartialVotecount] = useState({});
 
   const voteBoxRef = useRef([]);
   const descriptions = {
@@ -97,8 +110,6 @@ export default function Vote() {
   });
 
   const toggleActive = (e, part) => {
-    console.log(e.target.parentNode.parentNode.getAttribute("value"));
-    console.log(part);
     // 각 후보에 해당하는 DIV toggle용
     if (btnActive[part] === "") {
       setBtnActive({
@@ -120,15 +131,6 @@ export default function Vote() {
       count: increment(1),
     });
   };
-
-  const getCurrentCount = async(targetMeme) => {
-    const db = getFirestore();
-    const docRef = doc(db, "TOTAL", targetMeme);
-    const docSnap = await getDoc(docRef);
-    
-    console.log(docSnap.data())
-    return docSnap.data();
-  }
 
   const voteMeme = async (memeType, memeName) => {
     // 투표 반영
@@ -183,10 +185,8 @@ export default function Vote() {
   };
 
   // 새로고침 할 때마다 세션 스토리지 초기화해서 다시 투표할 수 있게 함
-  useEffect(() => {
-    window.addEventListener("beforeunload", () => {
-      sessionStorage.clear();
-    });
+  window.addEventListener("beforeunload", () => {
+    sessionStorage.clear();
   });
 
   useEffect(() => {
@@ -195,9 +195,17 @@ export default function Vote() {
     });
   }, []);
 
-  useEffect(() =>{
-    
-  })
+  useEffect(() => {
+    getCurrentCount().then((countResult) => {
+      Object.entries(countResult).forEach((item) => {
+        setPartialVotecount((prev) => {
+          let newCount = { ...prev };
+          newCount[item[0]] = item[1];
+          return newCount;
+        });
+      });
+    });
+  }, []);
 
   return (
     <>
@@ -253,7 +261,12 @@ export default function Vote() {
                       />
                       <div className="meme-info">
                         <div className="meme-name">{item.meme[idx]}</div>
-                        <div className="meme-count">{JSON.stringify(getCurrentCount(item.meme[idx]))}</div>
+                        <div className="meme-count">
+                          {JSON.stringify(
+                            partialVoteCount[item.meme[idx]]?.count
+                          )}
+                          표
+                        </div>
                       </div>
                       <img
                         className="vote-done-image"
