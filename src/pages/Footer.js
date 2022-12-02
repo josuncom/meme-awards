@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import "../pages/css/Footer.css";
+import "../css/Footer.css";
 
 import Share from "../image/share.png";
 import Kakao from "../image/kakao.png";

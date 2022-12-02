@@ -58,7 +58,7 @@ export default function Link() {
             window.open(memeTestUrl);
           }}
         >
-          <div style={{ marginLeft: "2rem", flex: "7", fontFamily:'SUITM' }}>
+          <div style={{ marginLeft: "2rem", flex: "7", fontFamily: "SUITM" }}>
             twitter @banggooso
           </div>
           <div style={{ flex: "1" }}>〉</div>
@@ -127,7 +127,7 @@ const LinkBox = styled.div`
   border-radius: 0.5rem;
 
   @media screen and (max-width: 500px) {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 `;
 const ContactBox = styled.div`

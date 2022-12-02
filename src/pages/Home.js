@@ -1,5 +1,5 @@
 import React from "react";
-import "../components/Home.css";
+import "../css/Home.css";
 import styled from "styled-components";
 
 import Banner from "../image/main.jpg";
@@ -177,9 +177,9 @@ const HomeMainText = styled.div`
 `;
 const HomeSubText = styled.div`
   font-size: 1.5rem;
-  font-weight: 100;
+  font-weight: normal;
   line-height: 3rem;
   @media screen and (max-width: 500px) {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 `;

@@ -4,11 +4,11 @@ import { useLocation } from "react-router-dom";
 import Home from "./Home";
 import Clock from "./Clock";
 import Vote from "./Vote";
-import Footer from "../components/Footer";
+import Footer from "./Footer";
 import Top2 from "./Top2";
 import Link from "./Link";
 
-import "../components/Main.css";
+import "../css/Main.css";
 
 import { Fragment } from "react";
 

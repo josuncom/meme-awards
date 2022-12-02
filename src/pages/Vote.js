@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, React } from "react";
-import "../components/Vote.css";
+import "../css/Vote.css";
 import {
   getFirestore,
   doc,
@@ -13,6 +13,52 @@ import styled from "styled-components";
 
 import Guide from "../image/Vote_intro.png";
 import Done from "../image/vote_done.png";
+
+// 투표 시 시간차를 두고 다음 부문으로 스크롤
+const handleScroll = (destination) => {
+  let voteBox1 = document.querySelector(".voteBox1");
+  let voteBox2 = document.querySelector(".voteBox2");
+  let voteBox3 = document.querySelector(".voteBox3");
+  let voteBox4 = document.querySelector(".voteBox4");
+  let voteBox5 = document.querySelector(".voteBox5");
+  let voteBox6 = document.querySelector(".voteBox6");
+
+  let voteBoxPosition = {
+    TV_OTT: voteBox1.offsetTop,
+    CONTENT: voteBox2.offsetTop,
+    SNS_COMMUNITY: voteBox3.offsetTop,
+    MEMEPOSE: voteBox4.offsetTop,
+    CHALLENGE: voteBox5.offsetTop,
+    CHARACTER: voteBox6.offsetTop,
+  };
+  console.log(destination);
+
+  switch (destination) {
+    case "TV_OTT":
+      scrollMove(voteBoxPosition["CONTENT"], -100);
+      break;
+    case "CONTENT":
+      scrollMove(voteBoxPosition["SNS_COMMUNITY"], -100);
+      break;
+    case "SNS_COMMUNITY":
+      scrollMove(voteBoxPosition["MEMEPOSE"], -100);
+      break;
+    case "MEMEPOSE":
+      scrollMove(voteBoxPosition["CHALLENGE"], -100);
+      break;
+    case "CHALLENGE":
+      scrollMove(voteBoxPosition["CHARACTER"], -100);
+      break;
+    default:
+      scrollMove(voteBoxPosition["CHARACTER"], 700);
+  }
+};
+
+const scrollMove = (destination, additional) => {
+  setTimeout(() => {
+    window.scrollTo(destination + additional, destination + additional);
+  }, 500);
+};
 
 const getTotalVoteCount = async () => {
   let totalCount = 0;
@@ -42,7 +88,26 @@ export default function Vote() {
   const [totalVoteCount, setTotalVoteCount] = useState(0);
   const [partialVoteCount, setPartialVotecount] = useState({});
 
+  const [isVoted, setIsVoted] = useState({
+    TV_OTT: false,
+    CONTENT: false,
+    SNS_COMMUNITY: false,
+    MEMEPOSE: false,
+    CHALLENGE: false,
+    CHARACTER: false,
+  });
+
+  const [btnActive, setBtnActive] = useState({
+    TV_OTT: "",
+    CONTENT: "",
+    SNS_COMMUNITY: "",
+    MEMEPOSE: "",
+    CHALLENGE: "",
+    CHARACTER: "",
+  });
+
   const voteBoxRef = useRef([]);
+
   const descriptions = {
     TV_OTT: {
       part: "TV_OTT",
@@ -100,15 +165,6 @@ export default function Vote() {
 
   const nominationIndex = ["1", "2", "3", "4"];
 
-  const [btnActive, setBtnActive] = useState({
-    TV_OTT: "",
-    CONTENT: "",
-    SNS_COMMUNITY: "",
-    MEMEPOSE: "",
-    CHALLENGE: "",
-    CHARACTER: "",
-  });
-
   const toggleActive = (e, part) => {
     // 각 후보에 해당하는 DIV toggle용
     if (btnActive[part] === "") {
@@ -143,59 +199,21 @@ export default function Vote() {
   };
 
   const setData = (memeName, event, part) => {
-    // 세션 스토리지 체크 후 아직 투표하지 않은 부문이면 투표 반영
+    // state 확인 후 투표한 부문이면 재투표 방지
     toggleActive(event, part);
-    if (sessionStorage.getItem(part) === null) {
-      sessionStorage.setItem(part, memeName);
+    console.log(part);
+    if (isVoted[part] == false) {
+      setIsVoted((prev) => {
+        let newIsVoted = { ...prev };
+        newIsVoted[part] = true;
+        return newIsVoted;
+      });
       voteMeme(part, memeName);
+      handleScroll(part);
     } else {
       alert("이미 해당 부문에 투표했습니다!");
     }
   };
-
-  // 투표 시 시간차를 두고 다음 부문으로 스크롤
-  const handleScroll = (destination, item) => {
-    let voteBox1 = document.querySelector(".voteBox1");
-    let voteBox2 = document.querySelector(".voteBox2");
-    let voteBox3 = document.querySelector(".voteBox3");
-    let voteBox4 = document.querySelector(".voteBox4");
-    let voteBox5 = document.querySelector(".voteBox5");
-    let voteBox6 = document.querySelector(".voteBox6");
-
-    let voteBoxPosition = [
-      voteBox1.offsetTop,
-      voteBox2.offsetTop,
-      voteBox3.offsetTop,
-      voteBox4.offsetTop,
-      voteBox5.offsetTop,
-      voteBox6.offsetTop,
-    ];
-
-    if (
-      destination.idx < 5 &&
-      sessionStorage.getItem(destination.item.part) != null
-    ) {
-      setTimeout(() => {
-        window.scrollTo(
-          voteBoxPosition[destination.idx + 1] - 100,
-          voteBoxPosition[destination.idx + 1] - 100
-        );
-      }, 500);
-    } else if (
-      destination.idx === 5 &&
-      sessionStorage.getItem(destination.item.part) != null
-    ) {
-      window.scrollTo(
-        voteBoxPosition[destination.idx] + 700,
-        voteBoxPosition[destination.idx] + 700
-      );
-    }
-  };
-
-  // 새로고침 할 때마다 세션 스토리지 초기화해서 다시 투표할 수 있게 함
-  window.addEventListener("beforeunload", () => {
-    sessionStorage.clear();
-  });
 
   useEffect(() => {
     getTotalVoteCount().then((voteCount) => {
@@ -237,7 +255,6 @@ export default function Vote() {
               className={"voteBox" + (idx + 1)}
               key={idx}
               ref={voteBoxRef[idx]}
-              onClick={() => handleScroll({ idx, item })}
             >
               <VotePartTitle>{item.title}</VotePartTitle>
               <VotePartSubtitle>

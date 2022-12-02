@@ -8,7 +8,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 import styled from "styled-components";
-import "./css/Top2.css";
+import "../css/Top2.css";
 
 const getTop2 = async () => {
   let top2Meme = [];
