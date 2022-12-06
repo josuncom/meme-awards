@@ -11,6 +11,8 @@ import styled from "styled-components";
 import "../css/Top2.css";
 import { Top2Data } from "../data/data.js";
 
+import BG from "../image/bg.png";
+
 const getFirstPlace = async () => {
   let topMeme = [];
   let topCount = [];
@@ -42,8 +44,8 @@ export default function Winner() {
 
   return (
     <Top2Container>
-      <Top2Title>MEME of the year</Top2Title>
-      <Top2Subtitle>실시간 올해의 밈</Top2Subtitle>
+      <Top2Title>MEME OF THE YEAR</Top2Title>
+      <Top2Subtitle>올해의 밈</Top2Subtitle>
       <Top2Image>
         <div className="top2-image-box">
           {memeInfo.list.map((item, idx) => {
@@ -82,8 +84,11 @@ export default function Winner() {
 }
 
 const Top2Container = styled.div`
-  height: 600px;
+  height: 700px;
   padding: 6.5rem 3rem;
+  background-image: url(${BG});
+  background-repeat: no-repeat;
+  background-size: cover;
 `;
 
 const Top2Title = styled.div`

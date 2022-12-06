@@ -5,6 +5,10 @@ export default function Link() {
   const liveUrl = "https://www.banggooso.com";
   const memeTestUrl = "https://www.metavv.com";
 
+  const currentTime = new Date();
+  const voteDeadline = new Date("2022-12-18");
+  const liveDay = new Date("2022-12-21");
+
   return (
     <>
       <LinkContainer>
@@ -18,7 +22,11 @@ export default function Link() {
           <LiveTime>12월 21일 20시 LIVE</LiveTime>
           <LinkBox
             onClick={() => {
-              window.open(liveUrl);
+              if (currentTime < liveDay) {
+                alert("12월 21일 20시에 라이브로 시상식이 진행됩니다!");
+              } else {
+                window.open(liveUrl);
+              }
             }}
           >
             <div style={{ marginLeft: "2rem", flex: "7" }}>
@@ -36,7 +44,11 @@ export default function Link() {
           </LinkSubtitle>
           <LinkBox
             onClick={() => {
-              window.open(memeTestUrl);
+              if (currentTime < liveDay) {
+                alert("아직 준비 중인 콘텐츠입니다!");
+              } else {
+                window.open(memeTestUrl);
+              }
             }}
           >
             <div style={{ marginLeft: "2rem", flex: "7" }}>

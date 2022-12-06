@@ -23,6 +23,7 @@
     "react-tiny-fab": "^4.0.4",
     "react-typing-effect": "^2.0.5",
     "styled-components": "^5.3.6",
+    "swiper": "^8.4.5",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

@@ -23,7 +23,7 @@
 
 .HomeContainer {
   position: relative;
-  background-color: black;
+  background-color: #0c0c0c;
   color: white;
   z-index: 1;
   opacity: 0;

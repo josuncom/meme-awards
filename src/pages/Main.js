@@ -9,6 +9,7 @@ import Footer from "./Footer";
 import Top2 from "./Top2";
 import Winner from "./Winner";
 import Link from "./Link";
+import LastAwards from "./LastAwardsVideo";
 
 import "../css/Main.css";
 
@@ -31,9 +32,11 @@ export default function Main() {
       {currentTime < voteDeadline ? <Top2 /> : null}
       {/* 실시간 1,2등은 투표 마감 전까지만 나오도록 */}
 
+      {currentTime < liveDay ? <LastAwards /> : null}
+
       {currentTime < voteDeadline ? (
         <Clock />
-      ) : currentTime < liveDay ? (
+      ) : currentTime > liveDay ? (
         <Clock2 />
       ) : (
         <Winner />
@@ -43,6 +46,7 @@ export default function Main() {
 
       <Vote />
       <Link />
+
       <Footer />
     </Fragment>
   );

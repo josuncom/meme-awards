@@ -68,7 +68,7 @@ const descriptions = {
     part: "SPORTS",
     title: "스포츠 부문",
     subtitle1: "춥지만 마음만은 뜨거웠던 겨울,",
-    subtitle2: "모두가 한 마음으로 모이게 한 주범들",
+    subtitle2: "모두가 한 마음으로 모이게 한 주역들",
     meme: [
       "손흥민 마스크짤",
       "알빠임?",
