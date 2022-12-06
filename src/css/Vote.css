@@ -18,6 +18,7 @@ div > .vote-done-image {
 .meme-image {
   flex: 1;
   height: inherit;
+  border-radius: 1rem 0 0 1rem;
 }
 .meme-info {
   flex: 2;
@@ -36,6 +37,7 @@ div > .vote-done-image {
   color: #faff00;
   text-align: left;
   margin-left: 2rem;
+  font-weight: 400;
 }
 .meme-count .meme-count-text {
   width: 100%;
@@ -45,7 +47,7 @@ div > .vote-done-image {
 @media screen and (max-width: 500px) {
   .active > .vote-done-image {
     width: 80%;
-    height: 10rem;
+    height: 11rem;
   }
   .meme-name {
     text-align: left;

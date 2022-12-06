@@ -9,6 +9,7 @@ import {
 } from "firebase/firestore";
 import styled from "styled-components";
 import "../css/Top2.css";
+import { Top2Data } from "../data/data.js";
 
 const getTop2 = async () => {
   let top2Meme = [];
@@ -43,6 +44,20 @@ export default function Top2() {
     <Top2Container>
       <Top2Title>MEME of the year</Top2Title>
       <Top2Subtitle>실시간 올해의 밈</Top2Subtitle>
+      <Top2Image>
+        <div className="top2-image-box">
+          {memeInfo.list.map((item, idx) => {
+            return (
+              <img
+                className={`meme rank${idx + 1}`}
+                src={require(`../image/${Top2Data[item]}.png`)}
+                key={`meme-rank${idx + 1}`}
+              />
+            );
+          })}
+          <div className="top2-vs">VS</div>
+        </div>
+      </Top2Image>
       <Top2Meme>
         <TopMemeName>
           {memeInfo.list.map((item, idx) => {
@@ -53,7 +68,6 @@ export default function Top2() {
             );
           })}
         </TopMemeName>
-        vs
         <TopMemeCount>
           {memeInfo.count.map((item, idx) => {
             return (
@@ -69,7 +83,7 @@ export default function Top2() {
 }
 
 const Top2Container = styled.div`
-  height: 500px;
+  height: 600px;
   padding: 6.5rem 3rem;
 `;
 
@@ -107,6 +121,12 @@ const TopMemeName = styled.div`
 `;
 
 const TopMemeCount = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Top2Image = styled.div`
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
 `;

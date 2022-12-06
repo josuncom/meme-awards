@@ -4,7 +4,7 @@ import styled from "styled-components";
 import CircleDown from "../image/Clock_circle_down.png";
 
 export default function () {
-  const voteEndTime = new Date("2022-12-21");
+  const voteEndTime = new Date("2022-12-18");
   const todayTime = new Date();
   const remainingTime = voteEndTime - todayTime;
 
@@ -13,8 +13,6 @@ export default function () {
   const [hour, setHour] = useState("");
   const [minute, setMinute] = useState("");
   const [second, setSecond] = useState("");
-
-  // console.log(remainingTime);
 
   useEffect(() => {
     const diffDay = Math.floor(time / (1000 * 60 * 60 * 24));
@@ -64,7 +62,7 @@ export default function () {
         </TimeBox>
       </Time>
       <TimeBottom>
-        TV/OTT, SNS, 챌린지 포함
+        TV/OTT, SNS, 스포츠 포함
         <br />총 <span style={{ color: "#FAFF00" }}>6개 부문</span>에 투표가
         가능합니다.
       </TimeBottom>

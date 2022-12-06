@@ -13,3 +13,59 @@
   font-size: 2.2rem;
   font-weight: bold;
 }
+
+.meme {
+  margin: 0 -2rem;
+}
+.meme.rank1 {
+  width: 25rem;
+  height: 25rem;
+  border-radius: 50%;
+  order: 0;
+}
+.meme.rank2 {
+  width: 21rem;
+  height: 21rem;
+  margin-top: 2rem;
+  border-radius: 50%;
+  order: 2;
+}
+
+.top2-image-box {
+  display: flex;
+}
+.top2-vs {
+  background: #faff00;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  order: 1;
+  z-index: 9999;
+  margin: auto -3rem;
+  text-align: center;
+  line-height: 7rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+@media screen and (max-width: 500px) {
+  .meme.rank1 {
+    width: 20rem;
+    height: 20rem;
+  }
+  .meme.rank2 {
+    width: 17rem;
+    height: 17rem;
+  }
+  .topMeme {
+    font-size: 1.7rem;
+  }
+  .memeCount {
+    font-size: 2rem;
+  }
+  .top2-vs {
+    font-size: 1.8rem;
+    width: 5.5rem;
+    height: 5.5rem;
+    line-height: 5.5rem;
+  }
+}

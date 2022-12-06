@@ -13,6 +13,7 @@ import styled from "styled-components";
 
 import Guide from "../image/Vote_intro.png";
 import Done from "../image/vote_done.png";
+import { descriptions } from "../data/data";
 
 // 투표 시 시간차를 두고 다음 부문으로 스크롤
 const handleScroll = (destination) => {
@@ -28,10 +29,9 @@ const handleScroll = (destination) => {
     CONTENT: voteBox2.offsetTop,
     SNS_COMMUNITY: voteBox3.offsetTop,
     MEMEPOSE: voteBox4.offsetTop,
-    CHALLENGE: voteBox5.offsetTop,
+    SPORTS: voteBox5.offsetTop,
     CHARACTER: voteBox6.offsetTop,
   };
-  console.log(destination);
 
   switch (destination) {
     case "TV_OTT":
@@ -44,9 +44,9 @@ const handleScroll = (destination) => {
       scrollMove(voteBoxPosition["MEMEPOSE"], -100);
       break;
     case "MEMEPOSE":
-      scrollMove(voteBoxPosition["CHALLENGE"], -100);
+      scrollMove(voteBoxPosition["SPORTS"], -100);
       break;
-    case "CHALLENGE":
+    case "SPORTS":
       scrollMove(voteBoxPosition["CHARACTER"], -100);
       break;
     default:
@@ -88,12 +88,16 @@ export default function Vote() {
   const [totalVoteCount, setTotalVoteCount] = useState(0);
   const [partialVoteCount, setPartialVotecount] = useState({});
 
+  const votingDeadline = new Date("2022-12-17");
+
+  let currentTime = new Date();
+
   const [isVoted, setIsVoted] = useState({
     TV_OTT: false,
     CONTENT: false,
     SNS_COMMUNITY: false,
     MEMEPOSE: false,
-    CHALLENGE: false,
+    SPORTS: false,
     CHARACTER: false,
   });
 
@@ -102,66 +106,11 @@ export default function Vote() {
     CONTENT: "",
     SNS_COMMUNITY: "",
     MEMEPOSE: "",
-    CHALLENGE: "",
+    SPORTS: "",
     CHARACTER: "",
   });
 
   const voteBoxRef = useRef([]);
-
-  const descriptions = {
-    TV_OTT: {
-      part: "TV_OTT",
-      title: "TV/OTT 부문",
-      subtitle1: "올해 방송 및 OTT 부문",
-      subtitle2: "가장 큰 호응을 이끌어낸 인상적인 장면",
-      meme: [
-        "우to the 영to the 우!",
-        "내일 봬요 누나",
-        "너 납치 된거야",
-        "어이~ 강프로, 식사는 잡쉈어?",
-      ],
-    },
-    CONTENT: {
-      part: "CONTENT",
-      title: "영상 콘텐츠 부문",
-      subtitle1: "올해 가장 주목할만한 영상 콘텐츠를",
-      subtitle2: "만들어낸 제작자와 아티스트",
-      meme: [
-        "너 뭐 돼?",
-        "재즈가 뭐라고 생각하세요?",
-        "내 장점이 뭔 지 알아?",
-        "하남자 특",
-      ],
-    },
-    SNS_COMMUNITY: {
-      part: "SNS_COMMUNITY",
-      title: "SNS/커뮤니티 부문",
-      subtitle1: "올해 SNS와 커뮤니티를",
-      subtitle2: "떠들썩하게 만들었던 바로 그 말",
-      meme: ["킹받드라슈", "저는 OO아티스트예요.", "ㄴ겟냐", "그잡채"],
-    },
-    MEMEPOSE: {
-      part: "MEMEPOSE",
-      title: "밈포즈 부문",
-      subtitle1: "하나, 둘, 셋 찰칵!",
-      subtitle2: "올해 전국 각지 사진 부스를 뒤덮은 포즈",
-      meme: ["갸루피스", "체리피스", "루피피스", "콩수니포즈"],
-    },
-    CHALLENGE: {
-      part: "CHALLENGE",
-      title: "챌린지 부문",
-      subtitle1: "올해 뜨거웠던 숏폼 열풍 속",
-      subtitle2: "가장 많은 호응을 받은 댄스 챌린지",
-      meme: ["지구방위대", "새삥", "꽃가루", "지글지글"],
-    },
-    CHARACTER: {
-      part: "CHARACTER",
-      title: "인간밈화재 부문",
-      subtitle1: "내가 바로 밈의 인간화.",
-      subtitle2: "존재만으로 밈을 만들어내는 인플루언서",
-      meme: ["사내뷰공업", "문상훈", "다나카", "신도시부부"],
-    },
-  };
 
   const nominationIndex = ["1", "2", "3", "4"];
 
@@ -201,7 +150,6 @@ export default function Vote() {
   const setData = (memeName, event, part) => {
     // state 확인 후 투표한 부문이면 재투표 방지
     toggleActive(event, part);
-    console.log(part);
     if (isVoted[part] == false) {
       setIsVoted((prev) => {
         let newIsVoted = { ...prev };
@@ -239,9 +187,16 @@ export default function Vote() {
         <VoteIntro>
           <VoteTitle>START VOTING</VoteTitle>
           <VoteSubtitle>투표? 가보자고</VoteSubtitle>
+          {currentTime > votingDeadline ? (
+            <DeadlineText>
+              * 스포일러 방지를 위해 투표 마감 D-1에는
+              <br />
+              투표수 마지막 자리만 공개됩니다.
+            </DeadlineText>
+          ) : null}
           <img
             alt="투표관련정보"
-            style={{ width: "80%", margin: "5% 10% 3% 10%" }}
+            style={{ width: "80%", margin: "3% 10% 3% 10%" }}
             src={Guide}
           />
           <VoteCounter>
@@ -287,9 +242,15 @@ export default function Vote() {
                       <div className="meme-info">
                         <div className="meme-name">{item.meme[idx]}</div>
                         <div className="meme-count">
-                          {JSON.stringify(
-                            partialVoteCount[item.meme[idx]]?.count
-                          )}
+                          {currentTime < votingDeadline
+                            ? JSON.stringify(
+                                partialVoteCount[item.meme[idx]]?.count
+                              )
+                            : `????${
+                                JSON.stringify(
+                                  partialVoteCount[item.meme[idx]]?.count
+                                )[0]
+                              }`}
                           표
                         </div>
                       </div>
@@ -411,6 +372,14 @@ const Nomination = styled.div`
   z-index: 99;
 
   @media screen and (max-width: 500px) {
-    height: 10rem;
+    height: 11rem;
   }
+`;
+
+const DeadlineText = styled.div`
+  font-family: "SUITM";
+  text-align: center;
+  color: #7a7a7a;
+  margin: 2rem 0 2rem 0;
+  font-size: 1.8rem;
 `;
