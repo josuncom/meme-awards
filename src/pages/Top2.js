@@ -50,7 +50,7 @@ export default function Top2() {
             return (
               <img
                 className={`meme rank${idx + 1}`}
-                src={require(`../image/${Top2Data[item]}.png`)}
+                src={require(`../image/meme/${Top2Data[item]}.png`)}
                 key={`meme-rank${idx + 1}`}
               />
             );

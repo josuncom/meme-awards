@@ -13,6 +13,8 @@ import styled from "styled-components";
 
 import Guide from "../image/Vote_intro.png";
 import Done from "../image/vote_done.png";
+import CircleDown from "../image/Clock_circle_down.png";
+
 import { descriptions } from "../data/data";
 
 // 투표 시 시간차를 두고 다음 부문으로 스크롤
@@ -88,7 +90,9 @@ export default function Vote() {
   const [totalVoteCount, setTotalVoteCount] = useState(0);
   const [partialVoteCount, setPartialVotecount] = useState({});
 
-  const votingDeadline = new Date("2022-12-17");
+  const beforeDeadline = new Date("2022-12-17");
+  const votingDeadline = new Date("2022-12-18");
+  const liveAwardsDay = new Date("2022-12-21");
 
   let currentTime = new Date();
 
@@ -184,25 +188,46 @@ export default function Vote() {
   return (
     <>
       <VoteContainer>
-        <VoteIntro>
-          <VoteTitle>START VOTING</VoteTitle>
-          <VoteSubtitle>투표? 가보자고</VoteSubtitle>
-          {currentTime > votingDeadline ? (
-            <DeadlineText>
-              * 스포일러 방지를 위해 투표 마감 D-1에는
-              <br />
-              투표수 마지막 자리만 공개됩니다.
-            </DeadlineText>
-          ) : null}
-          <img
-            alt="투표관련정보"
-            style={{ width: "80%", margin: "3% 10% 3% 10%" }}
-            src={Guide}
-          />
-          <VoteCounter>
-            현재 총 투표수 <VoteCount>{totalVoteCount}</VoteCount>
-          </VoteCounter>
-        </VoteIntro>
+        {currentTime < votingDeadline ? (
+          <VoteIntro>
+            <VoteTitle>START VOTING</VoteTitle>
+            <VoteSubtitle>투표? 가보자고</VoteSubtitle>
+            {currentTime < beforeDeadline ? null : (
+              <DeadlineText>
+                * 스포일러 방지를 위해 투표 마감 D-1에는
+                <br />
+                투표수 마지막 자리만 공개됩니다.
+              </DeadlineText>
+            )}
+            <img
+              alt="투표관련정보"
+              style={{ width: "80%", margin: "3% 10% 3% 10%" }}
+              src={Guide}
+            />
+            <VoteCounter>
+              현재 총 투표수 <VoteCount>{totalVoteCount}</VoteCount>
+            </VoteCounter>
+          </VoteIntro>
+        ) : currentTime < liveAwardsDay ? (
+          <VoteIntro>
+            <VoteSubtitle>투표 종료</VoteSubtitle>
+            <VoteSubtext>하단에서 각 부분별 후보를 만나보세요!</VoteSubtext>
+            <TimeImageBox>
+              <img style={{ width: "5rem" }} src={CircleDown} />
+            </TimeImageBox>
+          </VoteIntro>
+        ) : (
+          <VoteIntro>
+            <VoteSubtitle>투표 결과</VoteSubtitle>
+            <VoteSubtext>
+              올 한해 우리의 웃음을 책임진 밈을 만나보세요
+            </VoteSubtext>
+            <TimeImageBox>
+              <img style={{ width: "5rem" }} src={CircleDown} />
+            </TimeImageBox>
+          </VoteIntro>
+        )}
+
         <HorizonalLine />
         {Object.values(descriptions).map((item, idx) => {
           return (
@@ -237,7 +262,9 @@ export default function Vote() {
                     >
                       <img
                         className="meme-image"
-                        src={require(`../image/${item.part}${idx + 1}.png`)}
+                        src={require(`../image/meme/${item.part}${
+                          idx + 1
+                        }.png`)}
                       />
                       <div className="meme-info">
                         <div className="meme-name">{item.meme[idx]}</div>
@@ -382,4 +409,20 @@ const DeadlineText = styled.div`
   color: #7a7a7a;
   margin: 2rem 0 2rem 0;
   font-size: 1.8rem;
+`;
+
+const TimeImageBox = styled.div`
+  text-align: center;
+  margin-top: 1rem;
+`;
+const VoteSubtext = styled.div`
+  color: #faff00;
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 1rem 0 3rem 0;
+  font-family: "SUITM";
+
+  @media screen and (max-width: 500px) {
+    font-size: 1.2em;
+  }
 `;

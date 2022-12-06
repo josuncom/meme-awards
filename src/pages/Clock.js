@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import CircleDown from "../image/Clock_circle_down.png";
 
-export default function () {
+export default function Clock() {
   const voteEndTime = new Date("2022-12-18");
   const todayTime = new Date();
   const remainingTime = voteEndTime - todayTime;
