@@ -33,7 +33,8 @@ export default function Main() {
       {/* 실시간 1,2등은 투표 마감 전까지만 나오도록 */}
 
       {currentTime < liveDay ? <LastAwards /> : null}
-
+      {/* 임베드 영상은 라이브 시상식 전까지만 나오도록 */}
+      
       {currentTime < voteDeadline ? (
         <Clock />
       ) : currentTime > liveDay ? (
