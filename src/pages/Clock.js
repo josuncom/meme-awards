@@ -5,8 +5,8 @@ import CircleDown from "../image/Clock_circle_down.png";
 
 export default function Clock() {
   const voteEndTime = new Date("2022-12-18");
-  const todayTime = new Date();
-  const remainingTime = voteEndTime - todayTime;
+  const currentTime = new Date();
+  const remainingTime = voteEndTime - currentTime;
 
   const [time, setTime] = useState(remainingTime);
   const [day, setDay] = useState("");
@@ -40,6 +40,10 @@ export default function Clock() {
         <br />
         투표해 주세요!
       </TimeSubtitle>
+      {currentTime < voteEndTime ? 
+      <VotingPeriod>2022년 12월 9일(금)~12월 18일(일) 24:00</VotingPeriod> 
+      : null}
+
       <Time className="time">
         <TimeBox>
           <TimeNum>{day}</TimeNum>
@@ -167,3 +171,11 @@ const TimeImageBox = styled.div`
   text-align: center;
   margin-top: 1rem;
 `;
+
+const VotingPeriod = styled.div`
+font-family: "SUITM";
+text-align: center;
+color: white;
+font-size: 2rem;
+margin: 2rem 0 3rem 0;
+`
