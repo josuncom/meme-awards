@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { shareKakao, shareTwitter } from "../data/ShareAPI";
 import "../css/Footer.css";
 
 import Share from "../image/share.png";
@@ -7,7 +8,8 @@ import Kakao from "../image/kakao.png";
 import Insta from "../image/insta.png";
 import Twitter from "../image/twitter.png";
 
-function Footer() {
+export default function Footer() {
+
   return (
     <FooterContainer>
       <HorizonalLine />
@@ -25,10 +27,10 @@ function Footer() {
           <a href="#" title="Add User">
             <ShareImage src={Insta} />
           </a>
-          <a href="#" title="Edit Company">
+          <a onClick={() => shareTwitter('http://localhost:3000/')} title="Edit Company">
             <ShareImage src={Twitter} />
           </a>
-          <a href="#" title="Add Company">
+          <a onClick={() => shareKakao('http://localhost:3000', '2022 밈어워즈')} title="Add Company">
             <ShareImage src={Kakao} />
           </a>
         </div>
@@ -36,8 +38,6 @@ function Footer() {
     </FooterContainer>
   );
 }
-
-export default Footer;
 
 const FooterContainer = styled.div`
   height: 25rem;
