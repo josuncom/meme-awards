@@ -6,8 +6,16 @@ import Banner from "../image/main.jpg";
 import slideIcon1 from "../image/icon-1.svg";
 import slideIcon2 from "../image/icon-2.svg";
 import slideIcon3 from "../image/icon-3.svg";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    if (window.Kakao) {
+      console.log(window.Kakao);
+      const kakao = window.Kakao;
+      kakao.init(process.env.REACT_APP_SHARE_KAKAO_LINK_KEY);
+    }
+  }, []);
   return (
     <>
       <BannerImg src={Banner} />
@@ -19,7 +27,7 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
-              <div className="slide">너 뭐 돼?</div>
+              <div className="slide">너 혹시 뭐 돼?</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon2} />
               </div>
@@ -39,7 +47,7 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon3} />
               </div>
-              <div className="slide">너 납치 된거야</div>
+              <div className="slide">너 납치된 거야</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
@@ -55,7 +63,7 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
-              <div className="slide">하남자 특</div>
+              <div className="slide">하남자 특)</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon2} />
               </div>
@@ -67,7 +75,7 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
-              <div className="slide">너 뭐 돼?</div>
+              <div className="slide">너 혹시 뭐 돼?</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon2} />
               </div>
@@ -87,7 +95,7 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon3} />
               </div>
-              <div className="slide">너 납치 된거야</div>
+              <div className="slide">너 납치된 거야</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
@@ -103,7 +111,7 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
-              <div className="slide">하남자 특</div>
+              <div className="slide">하남자 특)</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon2} />
               </div>

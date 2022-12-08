@@ -1,35 +1,15 @@
 @font-face {
-    font-family: 'SUITM';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "SUITM";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
 }
 
-.search-bar {
-    margin : 20px;
-    text-align: center;
+img {
+  -webkit-touch-callout: none;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
 }
-
-.search-bar input{
-    max-width: 64px;
-}
-
-.video-detail .details{
-    margin-top : 10px;
-    padding : 10px;
-    border : 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.list-group-item{
-    cursor: pointer;
-}
-
-.list-group-item :hover{
-   background-color : gray;
-}
-
-.search-bar input{
-  margin-left: 20px;
-}
-

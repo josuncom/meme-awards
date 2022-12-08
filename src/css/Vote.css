@@ -14,6 +14,7 @@ div > .vote-done-image {
   transform: translateY(0%);
   height: 12rem;
   position: absolute;
+  width: 100%;
 }
 .meme-image {
   flex: 1;
@@ -46,12 +47,15 @@ div > .vote-done-image {
 
 @media screen and (max-width: 500px) {
   .active > .vote-done-image {
-    width: 80%;
     height: 11rem;
   }
   .meme-name {
     text-align: left;
     margin-left: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+  }
+  .meme-count {
+    font-size: 1.2rem;
+    margin-left: 1rem;
   }
 }

@@ -37,19 +37,19 @@ const handleScroll = (destination) => {
 
   switch (destination) {
     case "TV_OTT":
-      scrollMove(voteBoxPosition["CONTENT"], -100);
+      scrollMove(voteBoxPosition["CONTENT"], -20);
       break;
     case "CONTENT":
-      scrollMove(voteBoxPosition["SNS_COMMUNITY"], -100);
+      scrollMove(voteBoxPosition["SNS_COMMUNITY"], -20);
       break;
     case "SNS_COMMUNITY":
-      scrollMove(voteBoxPosition["MEMEPOSE"], -100);
+      scrollMove(voteBoxPosition["MEMEPOSE"], -20);
       break;
     case "MEMEPOSE":
-      scrollMove(voteBoxPosition["SPORTS"], -100);
+      scrollMove(voteBoxPosition["SPORTS"], -20);
       break;
     case "SPORTS":
-      scrollMove(voteBoxPosition["CHARACTER"], -100);
+      scrollMove(voteBoxPosition["CHARACTER"], -20);
       break;
     default:
       scrollMove(voteBoxPosition["CHARACTER"], 700);
@@ -121,10 +121,18 @@ export default function Vote() {
   const toggleActive = (e, part) => {
     // 각 후보에 해당하는 DIV toggle용
     if (btnActive[part] === "") {
-      setBtnActive({
-        ...btnActive,
-        [part]: e.target.parentNode.parentNode.getAttribute("value"),
-      });
+      if (e.target.tagName == "DIV") {
+        setBtnActive({
+          ...btnActive,
+          [part]: e.target.parentNode.parentNode.getAttribute("value"),
+        });
+      } else {
+        setBtnActive({
+          ...btnActive,
+          [part]: e.target.parentNode.getAttribute("value"),
+        });
+        e.stopPropagation();
+      }
     }
   };
 
@@ -265,6 +273,9 @@ export default function Vote() {
                         src={require(`../image/meme/${item.part}${
                           idx + 1
                         }.png`)}
+                        onClick={(e) =>
+                          setData(item.meme[idx], e, `${item.part}`)
+                        }
                       />
                       <div className="meme-info">
                         <div className="meme-name">{item.meme[idx]}</div>
@@ -381,6 +392,7 @@ const VoteBox = styled.div`
   line-height: 5rem;
 `;
 const Nomination = styled.div`
+  position: relative;
   display: flex;
   width: 90%;
   margin: auto;

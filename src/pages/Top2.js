@@ -42,7 +42,7 @@ export default function Top2() {
 
   return (
     <Top2Container>
-      <Top2Title>MEME of the year</Top2Title>
+      <Top2Title>MEME OF THE YEAR</Top2Title>
       <Top2Subtitle>실시간 올해의 밈</Top2Subtitle>
       <Top2Image>
         <div className="top2-image-box">

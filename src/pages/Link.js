@@ -4,6 +4,7 @@ import styled from "styled-components";
 export default function Link() {
   const liveUrl = "https://www.banggooso.com";
   const memeTestUrl = "https://www.metavv.com";
+  const contactUrl = "https://twitter.com/banggooso";
 
   const currentTime = new Date();
   const voteDeadline = new Date("2022-12-18");
@@ -30,7 +31,7 @@ export default function Link() {
             }}
           >
             <div style={{ marginLeft: "2rem", flex: "7" }}>
-              밈어워즈 시상식에서 바로 확인하기
+              밈어워즈 시상식에서 확인하기
             </div>
             <div style={{ flex: "1" }}>〉</div>
           </LinkBox>
@@ -67,7 +68,7 @@ export default function Link() {
         </LinkSubtitle>
         <ContactLinkBox
           onClick={() => {
-            window.open(memeTestUrl);
+            window.open(contactUrl);
           }}
         >
           <div style={{ marginLeft: "2rem", flex: "7", fontFamily: "SUITM" }}>

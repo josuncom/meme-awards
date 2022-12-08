@@ -1,12 +1,12 @@
 const Top2Data = {
   "우to the 영to the 우!": "TV_OTT1",
   "내일 봬요 누나": "TV_OTT2",
-  "너 납치 된거야": "TV_OTT3",
+  "너 납치된 거야": "TV_OTT3",
   "어이~ 강프로, 식사는 잡쉈어?": "TV_OTT4",
-  "너 뭐 돼?": "CONTENT1",
+  "너 혹시 뭐 돼?": "CONTENT1",
   "재즈가 뭐라고 생각하세요?": "CONTENT2",
   "내 장점이 뭔 지 알아?": "CONTENT3",
-  "하남자 특": "CONTENT4",
+  "하남자 특)": "CONTENT4",
   킹받드라슈: "SNS_COMMUNITY1",
   "저는 OO아티스트예요.": "SNS_COMMUNITY2",
   ㄴ겟냐: "SNS_COMMUNITY3",
@@ -20,9 +20,9 @@ const Top2Data = {
   "중요한 것은 꺾이지 않는 마음": "SPORTS3",
   곤룡포좌: "SPORTS4",
   사내뷰공업: "CHARACTER1",
-  문상훈: "CHARACTER2",
+  빠더너스: "CHARACTER2",
   다나카: "CHARACTER3",
-  신도시부부: "CHARACTER4",
+  "서준 엄마": "CHARACTER4",
 };
 
 const descriptions = {
@@ -34,7 +34,7 @@ const descriptions = {
     meme: [
       "우to the 영to the 우!",
       "내일 봬요 누나",
-      "너 납치 된거야",
+      "너 납치된 거야",
       "어이~ 강프로, 식사는 잡쉈어?",
     ],
   },
@@ -44,10 +44,10 @@ const descriptions = {
     subtitle1: "올해 가장 주목할만한 영상 콘텐츠를",
     subtitle2: "만들어낸 제작자와 아티스트",
     meme: [
-      "너 뭐 돼?",
+      "너 혹시 뭐 돼?",
       "재즈가 뭐라고 생각하세요?",
       "내 장점이 뭔 지 알아?",
-      "하남자 특",
+      "하남자 특)",
     ],
   },
   SNS_COMMUNITY: {
@@ -81,7 +81,7 @@ const descriptions = {
     title: "인간밈화재 부문",
     subtitle1: "내가 바로 밈의 인간화.",
     subtitle2: "존재만으로 밈을 만들어내는 인플루언서",
-    meme: ["사내뷰공업", "문상훈", "다나카", "신도시부부"],
+    meme: ["사내뷰공업", "빠더너스", "다나카", "서준 엄마"],
   },
 };
 

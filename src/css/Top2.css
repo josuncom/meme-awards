@@ -47,6 +47,14 @@
   font-size: 2.5rem;
   font-weight: bold;
 }
+.swiper-wrapper {
+  height: 300px !important;
+}
+.swiper-slide-active {
+  text-align: center;
+  margin-left: 3rem !important;
+}
+
 @media screen and (max-width: 500px) {
   .meme.rank1 {
     width: 20rem;
@@ -67,5 +75,11 @@
     width: 5.5rem;
     height: 5.5rem;
     line-height: 5.5rem;
+  }
+  .swiper-wrapper {
+    height: 300px !important;
+  }
+  .swiper-slide-active {
+    margin-left: 3rem !important;
   }
 }

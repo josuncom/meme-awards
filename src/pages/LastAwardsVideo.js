@@ -11,12 +11,18 @@ export default function LastAwards() {
       <VideoSubtitle>2021 수상자</VideoSubtitle>
       <Swiper
         modules={[Navigation, Pagination]}
-        spaceBetween={30}
+        spaceBetween={15}
         slidesPerView={1}
         navigation
         pagination={{ clickable: true }}
         scrollbar={{ draggable: true }}
-        width={420}
+        width={290}
+        breakpoints={{
+          500: {
+            width: 400,
+            spaceBetween: 10,
+          },
+        }}
       >
         <SwiperSlide>
           <Video
@@ -67,12 +73,11 @@ const Video = styled.iframe`
   margin: auto;
   border-radius: 1rem;
   margin-bottom: 2rem;
-  margin-left: 2rem;
   width: 400px;
   height: 220px;
 
   @media screen and (max-width: 500px) {
-    width: 350px;
-    height: 200px;
+    width: 290px;
+    height: 230px;
   }
 `;

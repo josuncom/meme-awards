@@ -49,7 +49,7 @@ export default function Clock2() {
         }}
       >
         <div style={{ marginLeft: "2rem", flex: "7" }}>
-          밈어워즈 시상식에서 바로 확인하기
+          밈어워즈 시상식에서 확인하기
         </div>
         <div style={{ flex: "1" }}>〉</div>
       </TimeBottom>

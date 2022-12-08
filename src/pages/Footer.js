@@ -1,6 +1,6 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import styled from "styled-components";
-import { shareKakao, shareTwitter } from "../data/ShareAPI";
+import { KakaoShare, shareTwitter } from "../data/ShareAPI";
 import "../css/Footer.css";
 
 import Share from "../image/share.png";
@@ -9,6 +9,22 @@ import Insta from "../image/insta.png";
 import Twitter from "../image/twitter.png";
 
 export default function Footer() {
+  const [shareButton, setShareButton] = useState(false);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://developers.kakao.com/sdk/js/kakao.js";
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      setShareButton(true);
+    };
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <FooterContainer>
@@ -21,16 +37,17 @@ export default function Footer() {
           <ShareImage src={Share} />
         </a>
         <div className="adminButtons">
-          <a href="#" title="Edit User">
-            URL
-          </a>
-          <a href="#" title="Add User">
+          <a href="#">URL</a>
+          <a href="#">
             <ShareImage src={Insta} />
           </a>
-          <a onClick={() => shareTwitter('http://localhost:3000/')} title="Edit Company">
+          <a onClick={() => shareTwitter("http://localhost:3000/")}>
             <ShareImage src={Twitter} />
           </a>
-          <a onClick={() => shareKakao('http://localhost:3000', '2022 밈어워즈')} title="Add Company">
+          <a
+            id="kakao-button"
+            onClick={() => KakaoShare("https://metavv.com", "2022 밈어워즈")}
+          >
             <ShareImage src={Kakao} />
           </a>
         </div>
