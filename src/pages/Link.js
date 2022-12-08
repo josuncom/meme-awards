@@ -31,7 +31,7 @@ export default function Link() {
             }}
           >
             <div style={{ marginLeft: "2rem", flex: "7" }}>
-              밈어워즈 시상식에서 확인하기
+              밈어워즈 시상식에서 바로 확인하기
             </div>
             <div style={{ flex: "1" }}>〉</div>
           </LinkBox>
@@ -52,7 +52,7 @@ export default function Link() {
               }
             }}
           >
-            <div style={{ marginLeft: "2rem", flex: "7" }}>
+            <div style={{ textAlign: "left", marginLeft: "2.5rem", flex: "7" }}>
               2022 MEME TEST 하러가기
             </div>
             <div style={{ flex: "1" }}>〉</div>
@@ -71,7 +71,14 @@ export default function Link() {
             window.open(contactUrl);
           }}
         >
-          <div style={{ marginLeft: "2rem", flex: "7", fontFamily: "SUITM" }}>
+          <div
+            style={{
+              textAlign: "left",
+              marginLeft: "2.5rem",
+              flex: "7",
+              fontFamily: "SUITM",
+            }}
+          >
             twitter @banggooso
           </div>
           <div style={{ flex: "1" }}>〉</div>
@@ -97,7 +104,7 @@ const LinkTitle = styled.div`
   text-align: center;
   color: #faff00;
   font: "Cabin";
-  font-size: 2rem;
+  font-size: 16px;
   font-family: "SUITM";
   letter-spacing: 1px;
   font-weight: bold;
@@ -105,7 +112,7 @@ const LinkTitle = styled.div`
 const LinkSubtitle = styled.div`
   text-align: center;
   font-size: 5rem;
-  margin-top: 1rem;
+  margin-top: 16px;
   font-family: "SUITM";
   color: white;
   font-weight: bold;
@@ -135,7 +142,7 @@ const LinkBox = styled.div`
   cursor: pointer;
   font-family: "SUITM";
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.2rem;
   padding: 3rem 1rem;
   border-radius: 0.5rem;
 

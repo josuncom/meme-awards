@@ -1,8 +1,12 @@
 .adminActions {
-  position: relative;
-  left: 80%;
+  position: fixed;
   bottom: 7rem;
-  width: min-content;
+  z-index: 9999;
+  max-width: 500px;
+  width: 100%;
+  transform: translateX(35%);
+  left: 50%;
+  text-align: right;
 }
 
 .share-button {
@@ -93,10 +97,7 @@
 
 @media screen and (max-width: 500px) {
   .adminActions {
-    position: relative;
-    left: 75%;
-    bottom: 7rem;
-    width: min-content;
+    transform: translateX(30%);
   }
 
   .share-button,

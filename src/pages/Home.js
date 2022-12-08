@@ -23,7 +23,7 @@ export default function Home() {
         <div className="slider">
           <div className="slider-track">
             <div>
-              <div className="slide">우to the영to the우!</div>
+              <div className="slide">우 to the 영 to the 우!</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
@@ -55,11 +55,11 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon2} />
               </div>
-              <div className="slide">ㄴ겟냐</div>
+              <div className="slide">ㄴ겠냐</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon3} />
               </div>
-              <div className="slide">어이~ 강프로, 식사는 잡쉈어?</div>
+              <div className="slide">어이, 강프로 식사는 잡쉈어?</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
@@ -71,7 +71,7 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon3} />
               </div>
-              <div className="slide">우to the영to the우!</div>
+              <div className="slide">우 to the 영 to the 우!</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
@@ -103,11 +103,11 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon2} />
               </div>
-              <div className="slide">ㄴ겟냐</div>
+              <div className="slide">ㄴ겠냐</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon3} />
               </div>
-              <div className="slide">어이~ 강프로, 식사는 잡쉈어?</div>
+              <div className="slide">어이, 강프로 식사는 잡쉈어?</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
@@ -173,6 +173,9 @@ const HomeMainTtitle = styled.div`
   margin-top: 5rem;
   line-height: 5rem;
   font-family: "SUITM";
+  @media screen and (max-width: 500px) {
+    font-size: 4.5rem;
+  }
 `;
 const HomeMainText = styled.div`
   margin-top: 5rem;

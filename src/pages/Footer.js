@@ -1,12 +1,7 @@
 import { React, useState, useEffect } from "react";
 import styled from "styled-components";
-import { KakaoShare, shareTwitter } from "../data/ShareAPI";
-import "../css/Footer.css";
 
-import Share from "../image/share.png";
-import Kakao from "../image/kakao.png";
-import Insta from "../image/insta.png";
-import Twitter from "../image/twitter.png";
+import "../css/Footer.css";
 
 export default function Footer() {
   const [shareButton, setShareButton] = useState(false);
@@ -31,27 +26,6 @@ export default function Footer() {
       <HorizonalLine />
       <EmailBox>✉ info@banggooso.com</EmailBox>
       <BrandBox>Copyright © 2022 SoftSphere.</BrandBox>
-      <div className="adminActions">
-        <input type="checkbox" name="adminToggle" className="adminToggle" />
-        <a className="share-button" href="#!">
-          <ShareImage src={Share} />
-        </a>
-        <div className="adminButtons">
-          <a href="#">URL</a>
-          <a href="#">
-            <ShareImage src={Insta} />
-          </a>
-          <a onClick={() => shareTwitter("http://localhost:3000/")}>
-            <ShareImage src={Twitter} />
-          </a>
-          <a
-            id="kakao-button"
-            onClick={() => KakaoShare("https://metavv.com", "2022 밈어워즈")}
-          >
-            <ShareImage src={Kakao} />
-          </a>
-        </div>
-      </div>
     </FooterContainer>
   );
 }
@@ -92,12 +66,3 @@ const HorizonalLine = styled.hr`
   width: 100%;
 `;
 
-const ShareImage = styled.img`
-  width: 3rem;
-  margin: 1.5rem;
-
-  @media screen and (max-width: 500px) {
-    width: 2rem;
-    margin: 1.25rem;
-  }
-`;

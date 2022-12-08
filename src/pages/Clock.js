@@ -79,15 +79,14 @@ export default function Clock() {
 
 const TimeContainer = styled.div`
   background: #1d1d1d;
-  height: 600px;
-  padding: 7rem 0;
+  padding: 7rem 0 4rem 0;
 `;
 
 const TimeTitle = styled.div`
   text-align: center;
   color: #faff00;
   font: "Cabin";
-  font-size: 2rem;
+  font-size: 16px;
   font-family: "SUITM";
   letter-spacing: 1px;
   font-weight: bold;
@@ -96,7 +95,7 @@ const TimeTitle = styled.div`
 const TimeSubtitle = styled.div`
   text-align: center;
   font-size: 4.5rem;
-  margin-top: 1rem;
+  margin-top: 16px;
   font-family: "SUITM";
   color: white;
   font-weight: bold;
@@ -112,6 +111,11 @@ const Time = styled.div`
   line-height: 5rem;
   font-family: "SUITM";
   margin-top: 2rem;
+
+  @media screen and (max-width: 350px) {
+    width: 85%;
+    margin-left: 7.5%;
+  }
 `;
 
 const TimeBox = styled.div`

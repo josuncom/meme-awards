@@ -291,6 +291,7 @@ export default function Vote() {
                               }`}
                           표
                         </div>
+                        <div className="meme-block"></div>
                       </div>
                       <img
                         className="vote-done-image"
@@ -337,7 +338,7 @@ const HorizonalLine = styled.hr`
 const VoteTitle = styled.div`
   text-align: center;
   color: #faff00;
-  font-size: 2rem;
+  font-size: 16px;
   font-family: "SUITM";
   letter-spacing: 1px;
   font-weight: bold;
@@ -346,7 +347,7 @@ const VoteTitle = styled.div`
 const VoteSubtitle = styled.div`
   text-align: center;
   font-size: 5rem;
-  margin-top: 1rem;
+  margin-top: 16px;
   font-family: "SUITM";
   color: white;
   font-weight: bold;
@@ -394,14 +395,14 @@ const VoteBox = styled.div`
 const Nomination = styled.div`
   position: relative;
   display: flex;
-  width: 90%;
+  width: 95%;
   margin: auto;
   margin-top: 1rem;
   color: white;
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
-  height: 12rem;
+  height: 13rem;
   line-height: 7rem;
   cursor: pointer;
   background-color: #1d1d1d;

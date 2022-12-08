@@ -49,7 +49,7 @@ export default function Clock2() {
         }}
       >
         <div style={{ marginLeft: "2rem", flex: "7" }}>
-          밈어워즈 시상식에서 확인하기
+          밈어워즈 시상식에서 바로 확인하기
         </div>
         <div style={{ flex: "1" }}>〉</div>
       </TimeBottom>
@@ -66,7 +66,7 @@ const TimeTitle = styled.div`
   text-align: center;
   color: #faff00;
   font: "Cabin";
-  font-size: 2rem;
+  font-size: 16px;
   font-family: "SUITM";
   letter-spacing: 1px;
   font-weight: bold;
@@ -75,7 +75,7 @@ const TimeTitle = styled.div`
 const TimeSubtitle = styled.div`
   text-align: center;
   font-size: 4.5rem;
-  margin-top: 1rem;
+  margin-top: 16px;
   font-family: "SUITM";
   color: white;
   font-weight: bold;
