@@ -75,12 +75,21 @@ export default function Main() {
               URL
             </a>
           </CopyToClipboard>
-          <a onClick={() => shareTwitter("http://localhost:3000/")}>
+          <a
+            onClick={() =>
+              shareTwitter("https://www.banggooso.com/ms/meme-awards/2022/")
+            }
+          >
             <ShareImage src={Twitter} />
           </a>
           <a
             id="kakao-button"
-            onClick={() => KakaoShare("https://metavv.com", "2022 밈어워즈")}
+            onClick={() =>
+              KakaoShare(
+                "https://www.banggooso.com/ms/meme-awards/2022/",
+                "2022 밈어워즈"
+              )
+            }
           >
             <ShareImage src={Kakao} />
           </a>

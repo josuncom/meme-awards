@@ -4,7 +4,7 @@ import styled from "styled-components";
 import FakeMeme from "../image/fake-meme.png";
 
 export default function Clock2() {
-  const memeAwardsLink = "https://www.metavv.com";
+  const liveLink = "http://bit.ly/3uEb0Ii";
 
   return (
     <TimeContainer>
@@ -37,7 +37,7 @@ export default function Clock2() {
       </Time>
       <TimeBottom
         onClick={() => {
-          window.open(memeAwardsLink);
+          window.open(liveLink);
         }}
       >
         <div style={{ marginLeft: "2rem", flex: "7" }}>

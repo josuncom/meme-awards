@@ -10,8 +10,7 @@ export const KakaoShare = (route, title) => {
       content: {
         title: title, // 인자값으로 받은 title
         description: "대국민 밈 연말정산, 올해의 밈을 뽑아주세요!", // 인자값으로 받은 title
-        imageUrl:
-          "https://cdn.banggooso.com/assets/images/game147/result/B.png",
+        imageUrl: "%PUBLIC_URL%/share-kakao.png",
         link: {
           mobileWebUrl: route, // 인자값으로 받은 route(uri 형태)
           webUrl: route,
