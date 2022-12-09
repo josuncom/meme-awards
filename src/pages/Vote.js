@@ -177,9 +177,7 @@ export default function Vote() {
     getTotalVoteCount().then((voteCount) => {
       setTotalVoteCount(voteCount);
     });
-  }, []);
 
-  useEffect(() => {
     getCurrentCount().then((countResult) => {
       Object.entries(countResult).forEach((item) => {
         setPartialVotecount((prev) => {
@@ -260,7 +258,6 @@ export default function Vote() {
                           : "")
                       }
                       key={item.meme[idx]}
-                      {...(currentTime > DEADLINE ? <></> : <></>)}
                       onClick={(e) =>
                         setData(item.meme[idx], e, `${item.part}`)
                       }
