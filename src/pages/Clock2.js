@@ -13,7 +13,7 @@ export default function Clock2() {
       <FakeMemeBox>
         <Fakememe src={FakeMeme} />
       </FakeMemeBox>
-      <LiveTime>12월 21일 20시 LIVE</LiveTime>
+      <LiveTime>12월 21일 21시 LIVE</LiveTime>
       <Time className="time">
         <TimeBox>
           <TimeNum>00</TimeNum>

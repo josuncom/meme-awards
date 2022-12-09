@@ -5,12 +5,12 @@ const Top2Data = {
   "어이, 강프로 식사는 잡쉈어?": "TV_OTT4",
   "너 혹시 뭐 돼?": "CONTENT1",
   "재즈가 뭐라고 생각하세요?": "CONTENT2",
-  "내 장점이 뭔 지 알아?": "CONTENT3",
+  "내 장점이 뭔지 알아?": "CONTENT3",
   "하남자 특)": "CONTENT4",
   킹받드라슈: "SNS_COMMUNITY1",
   "저는 OO아티스트예요.": "SNS_COMMUNITY2",
   ㄴ겠냐: "SNS_COMMUNITY3",
-  그잡채: "SNS_COMMUNITY4",
+  "그 잡채": "SNS_COMMUNITY4",
   갸루피스: "MEMEPOSE1",
   체리피스: "MEMEPOSE2",
   루피피스: "MEMEPOSE3",
@@ -29,7 +29,7 @@ const descriptions = {
   TV_OTT: {
     part: "TV_OTT",
     title: "TV/OTT 부문",
-    subtitle1: "올해 방송 및 OTT 부문",
+    subtitle1: "올해 방송 및 OTT 부문에서",
     subtitle2: "가장 큰 호응을 이끌어낸 인상적인 장면",
     meme: [
       "우 to the 영 to the 우!",
@@ -46,7 +46,7 @@ const descriptions = {
     meme: [
       "너 혹시 뭐 돼?",
       "재즈가 뭐라고 생각하세요?",
-      "내 장점이 뭔 지 알아?",
+      "내 장점이 뭔지 알아?",
       "하남자 특)",
     ],
   },
@@ -55,7 +55,7 @@ const descriptions = {
     title: "SNS/커뮤니티 부문",
     subtitle1: "올해 SNS와 커뮤니티를",
     subtitle2: "떠들썩하게 만들었던 바로 그 말",
-    meme: ["킹받드라슈", "저는 OO아티스트예요.", "ㄴ겠냐", "그잡채"],
+    meme: ["킹받드라슈", "저는 OO아티스트예요.", "ㄴ겠냐", "그 잡채"],
   },
   MEMEPOSE: {
     part: "MEMEPOSE",

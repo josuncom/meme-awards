@@ -51,7 +51,7 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
-              <div className="slide">내 장점이 뭔 지 알아?</div>
+              <div className="slide">내 장점이 뭔지 알아?</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon2} />
               </div>
@@ -67,7 +67,7 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon2} />
               </div>
-              <div className="slide">그잡채</div>
+              <div className="slide">그 잡채</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon3} />
               </div>
@@ -99,7 +99,7 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon1} />
               </div>
-              <div className="slide">내 장점이 뭔 지 알아?</div>
+              <div className="slide">내 장점이 뭔지 알아?</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon2} />
               </div>
@@ -115,7 +115,7 @@ export default function Home() {
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon2} />
               </div>
-              <div className="slide">그잡채</div>
+              <div className="slide">그 잡채</div>
               <div className="slide-icon">
                 <img className="slide-icon" src={slideIcon3} />
               </div>

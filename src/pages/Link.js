@@ -19,7 +19,7 @@ export default function Link() {
             <br />
             올해 최고의 밈은?
           </LinkSubtitle>
-          <LiveTime>12월 21일 20시 LIVE</LiveTime>
+          <LiveTime>12월 21일 21시 LIVE</LiveTime>
           <LinkBox
             onClick={() => {
               window.open(liveLink);
@@ -48,7 +48,7 @@ export default function Link() {
             }}
           >
             <div style={{ textAlign: "left", marginLeft: "2.5rem", flex: "7" }}>
-              2022 MEME TEST 하러가기
+              2022 MEME TEST 하러 가기
             </div>
             <div style={{ flex: "1" }}>〉</div>
           </LinkBox>
