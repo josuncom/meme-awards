@@ -11,11 +11,11 @@ import { useEffect } from "react";
 export default function Home() {
   useEffect(() => {
     if (window.Kakao) {
-      console.log(window.Kakao);
       const kakao = window.Kakao;
       kakao.init(process.env.REACT_APP_SHARE_KAKAO_LINK_KEY);
     }
   }, []);
+
   return (
     <>
       <BannerImg src={Banner} />

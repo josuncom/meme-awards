@@ -4,23 +4,6 @@ import styled from "styled-components";
 import "../css/Footer.css";
 
 export default function Footer() {
-  const [shareButton, setShareButton] = useState(false);
-
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://developers.kakao.com/sdk/js/kakao.js";
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      setShareButton(true);
-    };
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <FooterContainer>
       <HorizonalLine />
@@ -65,4 +48,3 @@ const HorizonalLine = styled.hr`
   color: white;
   width: 100%;
 `;
-

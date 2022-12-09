@@ -1,12 +1,4 @@
-import React, { useEffect, useState } from "react";
-import {
-  getFirestore,
-  collection,
-  query,
-  limit,
-  orderBy,
-  getDocs,
-} from "firebase/firestore";
+import React from "react";
 import styled from "styled-components";
 
 import FakeMeme from "../image/fake-meme.png";

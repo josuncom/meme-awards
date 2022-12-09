@@ -1,12 +1,12 @@
 import { React, useState, useEffect } from "react";
 import styled from "styled-components";
+import { DEADLINE } from "../data/data";
 
 import CircleDown from "../image/Clock_circle_down.png";
 
 export default function Clock() {
-  const voteEndTime = new Date("2022-12-19");
   const currentTime = new Date();
-  const remainingTime = voteEndTime - currentTime;
+  const remainingTime = DEADLINE - currentTime;
 
   const [time, setTime] = useState(remainingTime);
   const [day, setDay] = useState("");
@@ -40,7 +40,7 @@ export default function Clock() {
         <br />
         투표해 주세요!
       </TimeSubtitle>
-      {currentTime < voteEndTime ? (
+      {currentTime < DEADLINE ? (
         <VotingPeriod>2022년 12월 9일(금)~12월 18일(일) 23:59</VotingPeriod>
       ) : null}
 

@@ -29,7 +29,7 @@ div > .vote-done-image {
 .meme-name {
   text-align: left;
   padding-left: 2rem;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   height: 40%;
   padding-top: 1rem;
 }
@@ -51,12 +51,12 @@ div > .vote-done-image {
     height: 11rem;
   }
   .meme-name {
+    padding-left: 1rem;
     text-align: left;
-    margin-left: 1rem;
-    font-size: 1.35rem;
+    font-size: 1.3rem;
   }
   .meme-count {
-    font-size: 1.35rem;
-    margin-left: 1rem;
+    padding-left: 1rem;
+    font-size: 1.3rem;
   }
 }

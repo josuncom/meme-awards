@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { AFTERLIVE, DEADLINE, LIVEDAY } from "../data/data";
 
 export default function Link() {
-  const liveUrl = "https://www.banggooso.com";
-  const memeTestUrl = "https://www.metavv.com";
   const contactUrl = "https://twitter.com/banggooso";
+  const liveLink = "http://bit.ly/3uEb0Ii";
+  const testLink = "https://bityl.co/G6Qc";
 
   const currentTime = new Date();
-  const voteDeadline = new Date("2022-12-18");
-  const liveDay = new Date("2022-12-21");
 
   return (
     <>
@@ -23,15 +22,15 @@ export default function Link() {
           <LiveTime>12월 21일 20시 LIVE</LiveTime>
           <LinkBox
             onClick={() => {
-              if (currentTime < liveDay) {
-                alert("12월 21일 20시에 라이브로 시상식이 진행됩니다!");
-              } else {
-                window.open(liveUrl);
-              }
+              window.open(liveLink);
             }}
           >
             <div style={{ marginLeft: "2rem", flex: "7" }}>
-              밈어워즈 시상식에서 바로 확인하기
+              {currentTime < DEADLINE
+                ? "시상식 알림 설정하러 가기"
+                : currentTime < AFTERLIVE
+                ? "밈 어워즈 시상식 보러 가기"
+                : "밈 어워즈 시상식 다시보기"}
             </div>
             <div style={{ flex: "1" }}>〉</div>
           </LinkBox>
@@ -45,11 +44,7 @@ export default function Link() {
           </LinkSubtitle>
           <LinkBox
             onClick={() => {
-              if (currentTime < liveDay) {
-                alert("아직 준비 중인 콘텐츠입니다!");
-              } else {
-                window.open(memeTestUrl);
-              }
+              window.open(testLink);
             }}
           >
             <div style={{ textAlign: "left", marginLeft: "2.5rem", flex: "7" }}>
@@ -134,7 +129,7 @@ const LiveTime = styled.div`
 
 const LinkBox = styled.div`
   display: flex;
-  text-align: center;
+  text-align: left;
   width: 85%;
   margin: auto;
   background: #faff00;

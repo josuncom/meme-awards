@@ -14,7 +14,7 @@ const Top2Data = {
   갸루피스: "MEMEPOSE1",
   체리피스: "MEMEPOSE2",
   루피피스: "MEMEPOSE3",
-  콩수니포즈: "MEMEPOSE4",
+  콩순이포즈: "MEMEPOSE4",
   "손흥민 마스크짤": "SPORTS1",
   "알빠임?": "SPORTS2",
   "중요한 것은 꺾이지 않는 마음": "SPORTS3",
@@ -62,7 +62,7 @@ const descriptions = {
     title: "밈포즈 부문",
     subtitle1: "하나, 둘, 셋 찰칵!",
     subtitle2: "올해 전국 각지 사진 부스를 뒤덮은 포즈",
-    meme: ["갸루피스", "체리피스", "루피피스", "콩수니포즈"],
+    meme: ["갸루피스", "체리피스", "루피피스", "콩순이포즈"],
   },
   SPORTS: {
     part: "SPORTS",
@@ -85,4 +85,16 @@ const descriptions = {
   },
 };
 
-export { Top2Data, descriptions };
+const BEFORE_DEADLINE = new Date("2022-12-17");
+const DEADLINE = new Date("2022-12-18");
+const LIVEDAY = new Date("2022-12-21");
+const AFTERLIVE = new Date("2022-12-22");
+
+export {
+  Top2Data,
+  descriptions,
+  BEFORE_DEADLINE,
+  DEADLINE,
+  LIVEDAY,
+  AFTERLIVE,
+};

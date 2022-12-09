@@ -1,49 +1,49 @@
 import React, { useEffect } from "react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
-import Home from "./Home";
+import "../css/Main.css";
+import { DEADLINE, LIVEDAY } from "../data/data";
+import { KakaoShare, shareTwitter } from "../data/ShareAPI";
+import Kakao from "../image/kakao.png";
+import Share from "../image/share.png";
+import Twitter from "../image/twitter.png";
 import Clock from "./Clock";
 import Clock2 from "./Clock2";
-import Vote from "./Vote";
 import Footer from "./Footer";
-import Top2 from "./Top2";
-import Winner from "./Winner";
-import Link from "./Link";
+import Home from "./Home";
 import LastAwards from "./LastAwardsVideo";
-
-import { KakaoShare, shareTwitter } from "../data/ShareAPI";
-import Share from "../image/share.png";
-import Kakao from "../image/kakao.png";
-import Insta from "../image/insta.png";
-import Twitter from "../image/twitter.png";
-
-import "../css/Main.css";
-
-import { Fragment } from "react";
+import Link from "./Link";
+import Top2 from "./Top2";
+import Vote from "./Vote";
+import Winner from "./Winner";
 
 export default function Main() {
   const { pathname } = useLocation();
 
   const currentTime = new Date();
-  const voteDeadline = new Date("2022-12-18");
-  const liveDay = new Date("2022-12-21");
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
   return (
-    <Fragment>
+    <>
+      <CopyText
+        defaultValue="https://www.banggooso.com/ms/meme-awards/2022/"
+        id="copy"
+        data-clipboard-text="https://www.banggooso.com/ms/meme-awards/2022/"
+      />
       <Home />
-      {currentTime < voteDeadline ? <Top2 /> : null}
+      {currentTime < DEADLINE ? <Top2 /> : <></>}
       {/* 실시간 1,2등은 투표 마감 전까지만 나오도록 */}
 
-      {currentTime < liveDay ? <LastAwards /> : null}
+      {currentTime < LIVEDAY ? <LastAwards /> : <></>}
       {/* 임베드 영상은 라이브 시상식 전까지만 나오도록 */}
 
-      {currentTime < voteDeadline ? (
+      {currentTime < DEADLINE ? (
         <Clock />
-      ) : currentTime > liveDay ? (
+      ) : currentTime > LIVEDAY ? (
         <Clock2 />
       ) : (
         <Winner />
@@ -57,14 +57,24 @@ export default function Main() {
       <Footer />
       <div className="adminActions">
         <input type="checkbox" name="adminToggle" className="adminToggle" />
-        <a className="share-button" href="#!">
+        <a className="share-button">
           <ShareImage src={Share} />
         </a>
         <div className="adminButtons">
-          <a href="#">URL</a>
-          <a href="#">
-            <ShareImage src={Insta} />
-          </a>
+          <CopyToClipboard
+            text="https://www.banggooso.com/ms/meme-awards/2022/"
+            onCopy={() => {
+              alert("링크를 복사했습니다!");
+            }}
+          >
+            <a
+              className="copy-btn"
+              data-clipboard-target="#copy"
+              data-clipboard-action="copy"
+            >
+              URL
+            </a>
+          </CopyToClipboard>
           <a onClick={() => shareTwitter("http://localhost:3000/")}>
             <ShareImage src={Twitter} />
           </a>
@@ -76,7 +86,7 @@ export default function Main() {
           </a>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 }
 
@@ -88,4 +98,8 @@ const ShareImage = styled.img`
     width: 2rem;
     margin: 1.25rem;
   }
+`;
+
+const CopyText = styled.input`
+  display: none;
 `;

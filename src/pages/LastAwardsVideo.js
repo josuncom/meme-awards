@@ -1,7 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 export default function LastAwards() {

@@ -9,7 +9,7 @@ export const KakaoShare = (route, title) => {
       objectType: "feed", // 카카오 링크 공유 여러 type들 중 feed라는 타입 -> 자세한 건 카카오에서 확인
       content: {
         title: title, // 인자값으로 받은 title
-        description: "설명", // 인자값으로 받은 title
+        description: "대국민 밈 연말정산, 올해의 밈을 뽑아주세요!", // 인자값으로 받은 title
         imageUrl:
           "https://cdn.banggooso.com/assets/images/game147/result/B.png",
         link: {

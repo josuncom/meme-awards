@@ -15,7 +15,7 @@ import Guide from "../image/Vote_intro.png";
 import Done from "../image/vote_done.png";
 import CircleDown from "../image/Clock_circle_down.png";
 
-import { descriptions } from "../data/data";
+import { descriptions, DEADLINE, BEFORE_DEADLINE, LIVEDAY } from "../data/data";
 
 // 투표 시 시간차를 두고 다음 부문으로 스크롤
 const handleScroll = (destination) => {
@@ -90,10 +90,6 @@ export default function Vote() {
   const [totalVoteCount, setTotalVoteCount] = useState(0);
   const [partialVoteCount, setPartialVotecount] = useState({});
 
-  const beforeDeadline = new Date("2022-12-17");
-  const votingDeadline = new Date("2022-12-18");
-  const liveAwardsDay = new Date("2022-12-21");
-
   let currentTime = new Date();
 
   const [isVoted, setIsVoted] = useState({
@@ -113,8 +109,6 @@ export default function Vote() {
     SPORTS: "",
     CHARACTER: "",
   });
-
-  const voteBoxRef = useRef([]);
 
   const nominationIndex = ["1", "2", "3", "4"];
 
@@ -161,17 +155,21 @@ export default function Vote() {
 
   const setData = (memeName, event, part) => {
     // state 확인 후 투표한 부문이면 재투표 방지
-    toggleActive(event, part);
-    if (isVoted[part] == false) {
-      setIsVoted((prev) => {
-        let newIsVoted = { ...prev };
-        newIsVoted[part] = true;
-        return newIsVoted;
-      });
-      voteMeme(part, memeName);
-      handleScroll(part);
+    if (currentTime < DEADLINE) {
+      toggleActive(event, part);
+      if (isVoted[part] === false) {
+        setIsVoted((prev) => {
+          let newIsVoted = { ...prev };
+          newIsVoted[part] = true;
+          return newIsVoted;
+        });
+        voteMeme(part, memeName);
+        handleScroll(part);
+      } else {
+        alert("이미 해당 부문에 투표했습니다!");
+      }
     } else {
-      alert("이미 해당 부문에 투표했습니다!");
+      alert("투표가 종료됐습니다!");
     }
   };
 
@@ -196,11 +194,13 @@ export default function Vote() {
   return (
     <>
       <VoteContainer>
-        {currentTime < votingDeadline ? (
+        {currentTime < DEADLINE ? (
           <VoteIntro>
             <VoteTitle>START VOTING</VoteTitle>
             <VoteSubtitle>투표? 가보자고</VoteSubtitle>
-            {currentTime < beforeDeadline ? null : (
+            {currentTime < BEFORE_DEADLINE ? (
+              <></>
+            ) : (
               <DeadlineText>
                 * 스포일러 방지를 위해 투표 마감 D-1에는
                 <br />
@@ -216,7 +216,7 @@ export default function Vote() {
               현재 총 투표수 <VoteCount>{totalVoteCount}</VoteCount>
             </VoteCounter>
           </VoteIntro>
-        ) : currentTime < liveAwardsDay ? (
+        ) : currentTime < LIVEDAY ? (
           <VoteIntro>
             <VoteSubtitle>투표 종료</VoteSubtitle>
             <VoteSubtext>하단에서 각 부분별 후보를 만나보세요!</VoteSubtext>
@@ -239,11 +239,7 @@ export default function Vote() {
         <HorizonalLine />
         {Object.values(descriptions).map((item, idx) => {
           return (
-            <div
-              className={"voteBox" + (idx + 1)}
-              key={idx}
-              ref={voteBoxRef[idx]}
-            >
+            <div className={"voteBox" + (idx + 1)} key={item.title}>
               <VotePartTitle>{item.title}</VotePartTitle>
               <VotePartSubtitle>
                 {item.subtitle1}
@@ -263,7 +259,8 @@ export default function Vote() {
                           ? " active"
                           : "")
                       }
-                      key={item.title + idx}
+                      key={item.meme[idx]}
+                      {...(currentTime > DEADLINE ? <></> : <></>)}
                       onClick={(e) =>
                         setData(item.meme[idx], e, `${item.part}`)
                       }
@@ -280,7 +277,7 @@ export default function Vote() {
                       <div className="meme-info">
                         <div className="meme-name">{item.meme[idx]}</div>
                         <div className="meme-count">
-                          {currentTime < votingDeadline
+                          {currentTime < DEADLINE
                             ? JSON.stringify(
                                 partialVoteCount[item.meme[idx]]?.count
                               )
