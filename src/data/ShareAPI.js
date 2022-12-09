@@ -10,7 +10,8 @@ export const KakaoShare = (route, title) => {
       content: {
         title: title, // 인자값으로 받은 title
         description: "대국민 밈 연말정산, 올해의 밈을 뽑아주세요!", // 인자값으로 받은 title
-        imageUrl: "%PUBLIC_URL%/share-kakao.png",
+        imageUrl:
+          "https://cdn.banggooso.com/assets/images/2022-meme-awards/share-kakao.png",
         link: {
           mobileWebUrl: route, // 인자값으로 받은 route(uri 형태)
           webUrl: route,
@@ -18,7 +19,7 @@ export const KakaoShare = (route, title) => {
       },
       buttons: [
         {
-          title: "title",
+          title: "올해의 밈 투표하기",
           link: {
             mobileWebUrl: route,
             webUrl: route,
