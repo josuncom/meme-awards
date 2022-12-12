@@ -185,6 +185,7 @@ const HomeMainText = styled.div`
 
   @media screen and (max-width: 500px) {
     font-size: 4.5rem;
+    text-shadow: 0 0 white;
   }
 `;
 const HomeSubText = styled.div`

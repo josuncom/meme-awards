@@ -90,6 +90,7 @@ const TimeTitle = styled.div`
   font-family: "SUITM";
   letter-spacing: 1px;
   font-weight: bold;
+  text-shadow: 0 0 #faff00;
 `;
 
 const TimeSubtitle = styled.div`
@@ -100,6 +101,10 @@ const TimeSubtitle = styled.div`
   color: white;
   font-weight: bold;
   line-height: 6rem;
+
+  @media screen and (max-width: 500px) {
+    text-shadow: 0 0 white;
+  }
 `;
 
 const Time = styled.div`

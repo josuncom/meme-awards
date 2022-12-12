@@ -62,6 +62,7 @@ const TimeTitle = styled.div`
   font-family: "SUITM";
   letter-spacing: 1px;
   font-weight: bold;
+  text-shadow: 0 0 #faff00;
 `;
 
 const TimeSubtitle = styled.div`

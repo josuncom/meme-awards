@@ -80,7 +80,11 @@ export default function Main() {
               shareTwitter("https://www.banggooso.com/ms/meme-awards/2022/")
             }
           >
-            <ShareImage src={Twitter} />
+            <ShareSNSImage
+              style={{ marginTop: "8px" }}
+              className="twitter-button"
+              src={Twitter}
+            />
           </a>
           <a
             id="kakao-button"
@@ -91,7 +95,11 @@ export default function Main() {
               )
             }
           >
-            <ShareImage style={{ marginTop: "8px" }} src={Kakao} />
+            <ShareSNSImage
+              className="kakao-button"
+              style={{ marginTop: "8px" }}
+              src={Kakao}
+            />
           </a>
         </div>
       </div>
@@ -102,10 +110,23 @@ export default function Main() {
 const ShareImage = styled.img`
   width: 3rem;
   margin: 1.4rem;
+  margin-top: 8px;
 
   @media screen and (max-width: 500px) {
-    width: 2rem;
-    margin: 1.1rem;
+    width: 2rem !important;
+    margin: 1.1rem !important;
+  }
+`;
+
+const ShareSNSImage = styled.img`
+  width: 3rem;
+  margin: 1.4rem;
+  margin-top: 8px;
+
+  @media screen and (max-width: 500px) {
+    width: 2rem !important;
+    margin: 1.1rem !important;
+    margin-top: 8px !important;
   }
 `;
 

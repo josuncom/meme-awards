@@ -38,7 +38,7 @@ div > .vote-done-image {
   color: #faff00;
   text-align: left;
   padding-left: 2rem;
-  font-weight: 400;
+  font-weight: 300;
   padding-top: 1.5rem;
 }
 .meme-from {
@@ -47,6 +47,7 @@ div > .vote-done-image {
   text-align: left;
   padding-left: 2rem;
   font-size: 1.4rem;
+  font-weight: 300;
 }
 .meme-count .meme-count-text {
   width: 100%;

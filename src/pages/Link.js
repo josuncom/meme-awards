@@ -103,6 +103,7 @@ const LinkTitle = styled.div`
   font-family: "SUITM";
   letter-spacing: 1px;
   font-weight: bold;
+  text-shadow: 0 0 #faff00;
 `;
 const LinkSubtitle = styled.div`
   text-align: center;
@@ -140,6 +141,7 @@ const LinkBox = styled.div`
   font-size: 2.2rem;
   padding: 3rem 1rem;
   border-radius: 0.5rem;
+  color: #1d1d1d;
 
   @media screen and (max-width: 500px) {
     font-size: 1.6rem;
@@ -158,7 +160,7 @@ const ContactLinkBox = styled.div`
   cursor: pointer;
   font-family: "SUITM";
   font-size: 2rem;
-  padding: 3rem 1rem;
+  padding: 3rem 2rem;
   border-radius: 0.5rem;
   color: white;
 

@@ -15,7 +15,7 @@
 }
 
 .meme {
-  margin: 0 -2rem;
+  margin: 0 -3rem;
 }
 .meme.rank1 {
   width: 25rem;
@@ -36,14 +36,14 @@
 }
 .top2-vs {
   background: #faff00;
-  width: 7rem;
-  height: 7rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   order: 1;
   z-index: 9999;
-  margin: auto -3rem;
+  margin: auto -1.5rem;
   text-align: center;
-  line-height: 7rem;
+  line-height: 6rem;
   font-size: 2.5rem;
   font-weight: bold;
 }

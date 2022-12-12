@@ -94,11 +94,11 @@ const Top2Container = styled.div`
 const Top2Title = styled.div`
   text-align: center;
   color: #faff00;
-  font: "Cabin";
   font-size: 16px;
   font-family: "SUITM";
   letter-spacing: 1px;
   font-weight: bold;
+  text-shadow: 0 0 #faff00;
 `;
 const Top2Subtitle = styled.div`
   text-align: center;
