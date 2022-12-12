@@ -91,7 +91,7 @@ export default function Main() {
               )
             }
           >
-            <ShareImage src={Kakao} />
+            <ShareImage style={{ marginTop: "8px" }} src={Kakao} />
           </a>
         </div>
       </div>
@@ -101,11 +101,11 @@ export default function Main() {
 
 const ShareImage = styled.img`
   width: 3rem;
-  margin: 1.5rem;
+  margin: 1.4rem;
 
   @media screen and (max-width: 500px) {
     width: 2rem;
-    margin: 1.25rem;
+    margin: 1.1rem;
   }
 `;
 

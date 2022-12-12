@@ -30,17 +30,23 @@ div > .vote-done-image {
   text-align: left;
   padding-left: 2rem;
   font-size: 1.7rem;
-  height: 40%;
-  padding-top: 1rem;
+  height: 20%;
 }
 .meme-count {
-  height: 60%;
-  font-size: 1.8rem;
+  height: 50%;
+  font-size: 1.7rem;
   color: #faff00;
   text-align: left;
   padding-left: 2rem;
-  padding-bottom: 1rem;
   font-weight: 400;
+  padding-top: 1.5rem;
+}
+.meme-from {
+  height: 20%;
+  color: #828282;
+  text-align: left;
+  padding-left: 2rem;
+  font-size: 1.4rem;
 }
 .meme-count .meme-count-text {
   width: 100%;
@@ -53,10 +59,15 @@ div > .vote-done-image {
   .meme-name {
     padding-left: 1rem;
     text-align: left;
-    font-size: 1.3rem;
+    font-size: 1.35rem;
   }
   .meme-count {
     padding-left: 1rem;
-    font-size: 1.3rem;
+    padding-top: 1rem;
+    font-size: 1.35rem;
+  }
+  .meme-from {
+    padding-left: 1rem;
+    font-size: 1.2rem;
   }
 }

@@ -139,6 +139,13 @@ const TimeNum = styled.div`
     line-height: 7rem;
     font-size: 3.5rem;
   }
+
+  @media screen and (max-width: 360px) {
+    width: 5.5rem;
+    height: 5.5rem;
+    line-height: 5.5rem;
+    font-size: 2.8rem;
+  }
 `;
 const TimeText = styled.div`
   text-align: center;
@@ -146,6 +153,9 @@ const TimeText = styled.div`
   font-family: "SUITM";
   font-size: 1.3rem;
   margin-top: -1.5rem;
+  @media screen and (max-width: 360px) {
+    font-size: 1.1rem;
+  }
 `;
 const TimeDot = styled.div`
   font-size: 3.5rem;
@@ -182,4 +192,8 @@ const VotingPeriod = styled.div`
   color: white;
   font-size: 2rem;
   margin: 2rem 0 3rem 0;
+
+  @media screen and (max-width: 500px) {
+    font-size: 1.6rem;
+  }
 `;

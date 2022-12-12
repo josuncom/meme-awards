@@ -273,6 +273,7 @@ export default function Vote() {
                       />
                       <div className="meme-info">
                         <div className="meme-name">{item.meme[idx]}</div>
+                        <div className="meme-from">{item.from[idx]}</div>
                         <div className="meme-count">
                           {currentTime < DEADLINE
                             ? JSON.stringify(
@@ -357,7 +358,7 @@ const VotePartTitle = styled.div`
   font-size: 3.5rem;
   text-align: left;
   margin-bottom: 1rem;
-  margin-left: 10%;
+  margin-left: 7.5%;
   font-family: "SUITM";
   font-weight: bolder;
 
@@ -367,7 +368,7 @@ const VotePartTitle = styled.div`
 `;
 const VotePartSubtitle = styled.div`
   text-align: left;
-  margin-left: 10%;
+  margin-left: 7.5%;
   font-family: "SUITM";
   font-weight: lighter;
   color: white;

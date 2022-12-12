@@ -6,6 +6,7 @@ import {
   limit,
   orderBy,
   getDocs,
+  where,
 } from "firebase/firestore";
 import styled from "styled-components";
 import "../css/Top2.css";
@@ -28,8 +29,33 @@ const getTop2 = async () => {
   return [top2Meme, top2Count];
 };
 
+const getTop = async () => {
+  let topCount = [];
+  let topMeme = [];
+  const db = getFirestore();
+  const top2 = collection(db, "TOTAL");
+  const q = query(top2, orderBy("count", "desc"), limit(1));
+  const querySnapShot = await getDocs(q);
+
+  querySnapShot.forEach((doc) => {
+    topCount.push(doc.data().count);
+  });
+
+  const mostCount = topCount[0];
+
+  const q2 = query(collection(db, "TOTAL"), where("count", "==", mostCount));
+  const querySnapShot2 = await getDocs(q2);
+
+  querySnapShot2.forEach((doc) => {
+    topMeme.push(doc.id);
+  });
+
+  return [topMeme];
+};
+
 export default function Top2() {
   const [memeInfo, setMemeInfo] = useState({ list: [], count: [] });
+  const [firstPlace, setFirstPlace] = useState({ topMeme: [] });
 
   useEffect(() => {
     getTop2().then(([top2Meme, top2Count]) => {
@@ -38,8 +64,15 @@ export default function Top2() {
         count: top2Count,
       });
     });
+
+    getTop().then(([topMeme]) => {
+      setFirstPlace({
+        topMeme: topMeme,
+      });
+    });
   }, []);
 
+  console.log(firstPlace);
   return (
     <Top2Container>
       <Top2Title>MEME OF THE YEAR</Top2Title>

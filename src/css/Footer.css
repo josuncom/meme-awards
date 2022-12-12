@@ -12,7 +12,7 @@
 .share-button {
   height: 6rem;
   width: 6rem;
-  background-color: #e4e5e5;
+  background-color: #faff00;
   border-radius: 50%;
   display: block;
   color: #fff;
@@ -36,6 +36,7 @@
   width: 6rem;
   height: 6rem;
   border-radius: 50%;
+  background-color: #faff00 !important;
   text-decoration: none;
   margin: 10px auto 0;
   line-height: 1.15;
@@ -77,17 +78,13 @@
   width: 6rem;
   height: 6rem;
   cursor: pointer;
-  background-color: transparent;
+  background-color: #faff00 transparent;
   border: none;
   outline: none;
   z-index: 2;
 }
 .adminToggle:focus {
   outline: none !important;
-}
-
-.adminToggle:hover {
-  box-shadow: 0 3px 6px 2px rgba(51, 51, 51, 0.3);
 }
 
 .adminToggle:checked ~ .adminButtons a {

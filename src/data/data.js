@@ -37,6 +37,7 @@ const descriptions = {
       "너 납치된 거야",
       "어이, 강프로 식사는 잡쉈어?",
     ],
+    from: ["이상한 변호사 우영우", "환승연애2", "범죄도시2", "수리남"],
   },
   CONTENT: {
     part: "CONTENT",
@@ -49,6 +50,7 @@ const descriptions = {
       "내 장점이 뭔지 알아?",
       "하남자 특)",
     ],
+    from: ["레오제이", "주호민", "아이브 가을", "침펄"],
   },
   SNS_COMMUNITY: {
     part: "SNS_COMMUNITY",
@@ -56,6 +58,7 @@ const descriptions = {
     subtitle1: "올해 SNS와 커뮤니티를",
     subtitle2: "떠들썩하게 만들었던 바로 그 말",
     meme: ["킹받드라슈", "저는 OO아티스트예요.", "ㄴ겠냐", "그 잡채"],
+    from: ["미상", "미상", "미상", "미상"],
   },
   MEMEPOSE: {
     part: "MEMEPOSE",
@@ -63,6 +66,7 @@ const descriptions = {
     subtitle1: "하나, 둘, 셋 찰칵!",
     subtitle2: "올해 전국 각지 사진 부스를 뒤덮은 포즈",
     meme: ["갸루피스", "체리피스", "루피피스", "콩순이포즈"],
+    from: ["아이브 레이", "빌리", "미상", "아이브 레이"],
   },
   SPORTS: {
     part: "SPORTS",
@@ -75,6 +79,7 @@ const descriptions = {
       "중요한 것은 꺾이지 않는 마음",
       "곤룡포좌",
     ],
+    from: ["손흥민", "미상", "롤드컵", "규태씨"],
   },
   CHARACTER: {
     part: "CHARACTER",
@@ -82,6 +87,7 @@ const descriptions = {
     subtitle1: "내가 바로 밈의 인간화.",
     subtitle2: "존재만으로 밈을 만들어내는 인플루언서",
     meme: ["사내뷰공업", "빠더너스", "다나카", "서준 엄마"],
+    from: ["사내뷰공업", "빠더너스", "나몰라 패밀리", "피식대학"],
   },
 };
 

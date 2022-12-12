@@ -31,6 +31,6 @@ export const KakaoShare = (route, title) => {
 };
 
 export const shareTwitter = (url) => {
-  const text = "2022년을 뒤흔든 최고의 밈을 뽑아주세요!";
+  const text = "2022 밈어워즈, 올해를 뒤흔든 최고의 밈을 뽑아주세요!";
   window.open("https://twitter.com/intent/tweet?text=" + text + "&url=" + url);
 };
