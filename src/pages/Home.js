@@ -171,9 +171,10 @@ const HomeMainTtitle = styled.div`
   font-size: 5rem;
   color: #faff00;
   margin-top: 5rem;
-  line-height: 5rem;
+  line-height: 6rem;
   font-family: "SUITM";
-  @media screen and (max-width: 500px) {
+  text-shadow: 1px 0 #faff00;
+  letter-spacing: 2.5px @media screen and (max-width: 500px) {
     font-size: 4.5rem;
   }
 `;

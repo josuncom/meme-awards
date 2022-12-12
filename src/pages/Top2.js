@@ -72,7 +72,6 @@ export default function Top2() {
     });
   }, []);
 
-  console.log(firstPlace);
   return (
     <Top2Container>
       <Top2Title>MEME OF THE YEAR</Top2Title>
