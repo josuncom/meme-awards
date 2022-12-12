@@ -174,8 +174,16 @@ const HomeMainTtitle = styled.div`
   line-height: 6rem;
   font-family: "SUITM";
   text-shadow: 1px 0 #faff00;
-  letter-spacing: 2.5px @media screen and (max-width: 500px) {
+  letter-spacing: 2.5px;
+
+  @media screen and (max-width: 500px) {
     font-size: 4.5rem;
+    line-height: 5rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    font-size: 4.2rem;
+    line-height: 5rem;
   }
 `;
 const HomeMainText = styled.div`
@@ -192,7 +200,12 @@ const HomeSubText = styled.div`
   font-size: 1.5rem;
   font-weight: normal;
   line-height: 3rem;
+
   @media screen and (max-width: 500px) {
     font-size: 1.4rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    font-size: 1.35rem;
   }
 `;

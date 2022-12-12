@@ -25,14 +25,14 @@ export default function Link() {
               window.open(liveLink);
             }}
           >
-            <div style={{ marginLeft: "2rem", flex: "7" }}>
+            <div style={{ flex: "7" }}>
               {currentTime < DEADLINE
                 ? "시상식 알림 설정하러 가기"
                 : currentTime < AFTERLIVE
                 ? "밈 어워즈 시상식 보러 가기"
                 : "밈 어워즈 시상식 다시보기"}
             </div>
-            <div style={{ flex: "1" }}>〉</div>
+            <div style={{ flex: "1", textAlign: "right" }}>〉</div>
           </LinkBox>
         </AwardsLink>
         <MemeTestLink>
@@ -47,10 +47,10 @@ export default function Link() {
               window.open(testLink);
             }}
           >
-            <div style={{ textAlign: "left", marginLeft: "2.5rem", flex: "7" }}>
+            <div style={{ textAlign: "left", flex: "7" }}>
               2022 MEME TEST 하러 가기
             </div>
-            <div style={{ flex: "1" }}>〉</div>
+            <div style={{ flex: "1", textAlign: "right" }}>〉</div>
           </LinkBox>
         </MemeTestLink>
       </LinkContainer>
@@ -69,14 +69,13 @@ export default function Link() {
           <div
             style={{
               textAlign: "left",
-              marginLeft: "2.5rem",
               flex: "7",
               fontFamily: "SUITM",
             }}
           >
             twitter @banggooso
           </div>
-          <div style={{ flex: "1" }}>〉</div>
+          <div style={{ flex: "1", textAlign: "right" }}>〉</div>
         </ContactLinkBox>
       </ContactBox>
     </>
@@ -116,6 +115,12 @@ const LinkSubtitle = styled.div`
 
   @media screen and (max-width: 500px) {
     font-size: 4rem;
+    line-height: 5.5rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    font-size: 3.5rem;
+    line-height: 4.5rem;
   }
 `;
 
@@ -139,7 +144,7 @@ const LinkBox = styled.div`
   font-family: "SUITM";
   font-weight: bold;
   font-size: 2.2rem;
-  padding: 3rem 1rem;
+  padding: 3rem 2rem;
   border-radius: 0.5rem;
   color: #1d1d1d;
 

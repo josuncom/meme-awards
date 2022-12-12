@@ -146,6 +146,10 @@ const Top2Subtitle = styled.div`
 const Top2Meme = styled.div`
   text-align: center;
   margin-top: 3rem;
+
+  @media screen and (max-width: 380px) {
+    margin-top: 1rem;
+  }
 `;
 
 const TopMemeName = styled.div`

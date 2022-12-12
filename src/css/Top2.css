@@ -70,3 +70,32 @@
     line-height: 5.5rem;
   }
 }
+
+@media screen and (max-width: 380px) {
+  .meme.rank1 {
+    width: 18rem;
+    height: 18rem;
+  }
+  .meme.rank2 {
+    width: 15rem;
+    height: 15rem;
+  }
+  .topMeme {
+    font-size: 1.4rem;
+  }
+  .top2-vs {
+    font-size: 1.8rem;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    font-size: 1.7rem;
+    background: #faff00;
+    border-radius: 50%;
+    order: 1;
+    z-index: 9999;
+    margin: auto -1rem;
+    text-align: center;
+    font-weight: bold;
+    margin-right: 0rem;
+  }
+}
