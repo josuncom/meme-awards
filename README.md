@@ -13,10 +13,11 @@
 4) Vote (`투표 진행`)
 5) Link / Footer (`연관 콘텐츠 랜딩 버튼 및 하단 footer`)
 6) Share (`하단 고정된 공유하기 버튼`)
-
+<br/><br/>
 
 ### 3. 기술 정보
 1) 기술 스택
 - ReactJS
 - Firebase
 - styled-component / CSS
+
