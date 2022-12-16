@@ -160,7 +160,6 @@ const BannerImg = styled.img`
 const HomeText = styled.div`
   text-align: center;
   font-size: 1.6rem;
-  font-family: "SUITM";
   text-align: left;
   font-weight: bold;
   background: #1d1d1d;
@@ -172,8 +171,7 @@ const HomeMainTtitle = styled.div`
   color: #faff00;
   margin-top: 5rem;
   line-height: 6rem;
-  font-family: "SUITM";
-  text-shadow: 1px 0 #faff00;
+  font-family: "SUITB";
   letter-spacing: 2.5px;
 
   @media screen and (max-width: 500px) {
@@ -189,11 +187,11 @@ const HomeMainTtitle = styled.div`
 const HomeMainText = styled.div`
   margin-top: 5rem;
   font-size: 5.5rem;
-  font-family: "SUITM";
+  font-family: "SUITB";
 
   @media screen and (max-width: 500px) {
+    margin-top: 4rem;
     font-size: 4.5rem;
-    text-shadow: 0 0 white;
   }
 `;
 const HomeSubText = styled.div`
@@ -203,9 +201,11 @@ const HomeSubText = styled.div`
 
   @media screen and (max-width: 500px) {
     font-size: 1.4rem;
+    margin-top: -1rem;
   }
 
   @media screen and (max-width: 380px) {
     font-size: 1.35rem;
+    margin-top: -1.4rem;
   }
 `;

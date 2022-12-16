@@ -23,20 +23,17 @@ const VideoContainer = styled.div`
 const VideoTitle = styled.div`
   text-align: center;
   color: #faff00;
-  font: "Cabin";
   font-size: 16px;
-  font-family: "SUITM";
+  font-family: "SUITB";
   letter-spacing: 1px;
-  font-weight: bold;
   text-shadow: 0 0 #faff00;
 `;
 const VideoSubtitle = styled.div`
   text-align: center;
   font-size: 5rem;
   margin: 16px 0 3rem 0;
-  font-family: "SUITM";
+  font-family: "SUITB";
   color: white;
-  font-weight: bold;
   line-height: 6rem;
 
   @media screen and (max-width: 500px) {

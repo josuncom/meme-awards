@@ -3,7 +3,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import "../css/Main.css";
-import { DEADLINE, LIVEDAY } from "../data/data";
+import { AFTERLIVE, DEADLINE, LIVEDAY } from "../data/data";
 import { KakaoShare, shareTwitter } from "../data/ShareAPI";
 import Kakao from "../image/kakao.png";
 import Share from "../image/share.png";
@@ -43,7 +43,7 @@ export default function Main() {
 
       {currentTime < DEADLINE ? (
         <Clock />
-      ) : currentTime > LIVEDAY ? (
+      ) : currentTime < AFTERLIVE ? (
         <Clock2 />
       ) : (
         <Winner />

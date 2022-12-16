@@ -15,7 +15,13 @@ import Guide from "../image/Vote_intro.png";
 import Done from "../image/vote_done.png";
 import CircleDown from "../image/Clock_circle_down.png";
 
-import { descriptions, DEADLINE, BEFORE_DEADLINE, LIVEDAY } from "../data/data";
+import {
+  descriptions,
+  DEADLINE,
+  BEFORE_DEADLINE,
+  LIVEDAY,
+  AFTERLIVE,
+} from "../data/data";
 
 // 투표 시 시간차를 두고 다음 부문으로 스크롤
 const handleScroll = (destination) => {
@@ -167,6 +173,7 @@ export default function Vote() {
         handleScroll(part);
       } else {
         alert("이미 해당 부문에 투표했습니다!");
+        event.stopPropagation();
       }
     } else {
       alert("투표가 종료됐습니다!");
@@ -275,16 +282,25 @@ export default function Vote() {
                         <div className="meme-name">{item.meme[idx]}</div>
                         <div className="meme-from">{item.from[idx]}</div>
                         <div className="meme-count">
-                          {currentTime < DEADLINE
-                            ? JSON.stringify(
+                          {currentTime < BEFORE_DEADLINE
+                            ? `${String(
                                 partialVoteCount[item.meme[idx]]?.count
-                              )
-                            : `????${
-                                JSON.stringify(
+                              )}표`
+                            : currentTime < DEADLINE
+                            ? `????${
+                                String(
                                   partialVoteCount[item.meme[idx]]?.count
                                 )[0]
-                              }`}
-                          표
+                              }표`
+                            : currentTime < AFTERLIVE
+                            ? `????${
+                                String(
+                                  partialVoteCount[item.meme[idx]]?.count
+                                )[0]
+                              }표 (투표 종료)`
+                            : `${String(
+                                partialVoteCount[item.meme[idx]]?.count
+                              )}표`}
                         </div>
                         <div className="meme-block"></div>
                       </div>
@@ -334,9 +350,8 @@ const VoteTitle = styled.div`
   text-align: center;
   color: #faff00;
   font-size: 16px;
-  font-family: "SUITM";
+  font-family: "SUITB";
   letter-spacing: 1px;
-  font-weight: bold;
   text-shadow: 0 0 #faff00;
 `;
 
@@ -344,9 +359,8 @@ const VoteSubtitle = styled.div`
   text-align: center;
   font-size: 5rem;
   margin-top: 16px;
-  font-family: "SUITM";
+  font-family: "SUITB";
   color: white;
-  font-weight: bold;
   line-height: 6rem;
 
   @media screen and (max-width: 500px) {

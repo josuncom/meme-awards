@@ -59,9 +59,8 @@ const TimeTitle = styled.div`
   color: #faff00;
   font: "Cabin";
   font-size: 16px;
-  font-family: "SUITM";
+  font-family: "SUITB";
   letter-spacing: 1px;
-  font-weight: bold;
   text-shadow: 0 0 #faff00;
 `;
 
@@ -69,9 +68,8 @@ const TimeSubtitle = styled.div`
   text-align: center;
   font-size: 4.5rem;
   margin-top: 16px;
-  font-family: "SUITM";
+  font-family: "SUITB";
   color: white;
-  font-weight: bold;
   line-height: 6rem;
 `;
 
