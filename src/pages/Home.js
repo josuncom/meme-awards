@@ -180,7 +180,7 @@ const HomeMainTtitle = styled.div`
   }
 
   @media screen and (max-width: 380px) {
-    font-size: 4.2rem;
+    font-size: 4rem;
     line-height: 5rem;
   }
 `;

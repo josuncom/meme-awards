@@ -12,29 +12,34 @@ export default function Link() {
   return (
     <>
       <LinkContainer>
-        <AwardsLink>
-          <LinkTitle>ONLINE AWARDS</LinkTitle>
-          <LinkSubtitle>
-            내 손으로 뽑은
-            <br />
-            올해 최고의 밈은?
-          </LinkSubtitle>
-          <LiveTime>12월 21일 21시 LIVE</LiveTime>
-          <LinkBox
-            onClick={() => {
-              window.open(liveLink);
-            }}
-          >
-            <div style={{ flex: "7" }}>
-              {currentTime < DEADLINE
-                ? "시상식 알림 설정하러 가기"
-                : currentTime < AFTERLIVE
-                ? "밈 어워즈 시상식 보러 가기"
-                : "밈 어워즈 시상식 다시보기"}
-            </div>
-            <div style={{ flex: "1", textAlign: "right" }}>〉</div>
-          </LinkBox>
-        </AwardsLink>
+        {currentTime < DEADLINE ? (
+          <AwardsLink>
+            <LinkTitle>ONLINE AWARDS</LinkTitle>
+            <LinkSubtitle>
+              내 손으로 뽑은
+              <br />
+              올해 최고의 밈은?
+            </LinkSubtitle>
+            <LiveTime>12월 21일 21시 LIVE</LiveTime>
+            <LinkBox
+              onClick={() => {
+                window.open(liveLink);
+              }}
+            >
+              <div style={{ flex: "7" }}>
+                {currentTime < DEADLINE
+                  ? "시상식 알림 설정하러 가기"
+                  : currentTime < AFTERLIVE
+                  ? "밈 어워즈 시상식 보러 가기"
+                  : "밈 어워즈 시상식 다시보기"}
+              </div>
+              <div style={{ flex: "1", textAlign: "right" }}>〉</div>
+            </LinkBox>
+          </AwardsLink>
+        ) : (
+          <></>
+        )}
+
         <MemeTestLink>
           <LinkTitle>2022 MEME TEST</LinkTitle>
           <LinkSubtitle>
@@ -90,7 +95,6 @@ const AwardsLink = styled.div`
   background: #1d1d1d;
 `;
 const MemeTestLink = styled.div`
-  margin-top: 7rem;
   background: #1d1d1d;
   padding: 7rem 0;
 `;

@@ -115,7 +115,7 @@ const Time = styled.div`
   font-family: "SUITM";
   margin-top: 2rem;
 
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 380px) {
     width: 85%;
     margin-left: 7.5%;
   }
@@ -143,7 +143,7 @@ const TimeNum = styled.div`
     font-size: 3.5rem;
   }
 
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 380px) {
     width: 5.5rem;
     height: 5.5rem;
     line-height: 5.5rem;
@@ -156,7 +156,7 @@ const TimeText = styled.div`
   font-family: "SUITM";
   font-size: 1.3rem;
   margin-top: -1rem;
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 380px) {
     font-size: 1.1rem;
   }
 `;

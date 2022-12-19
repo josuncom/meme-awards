@@ -91,10 +91,10 @@ const descriptions = {
   },
 };
 
-const BEFORE_DEADLINE = new Date("2022-12-17");
-const DEADLINE = new Date("2022-12-18");
-const LIVEDAY = new Date("2022-12-21");
-const AFTERLIVE = new Date("2022-12-22");
+const BEFORE_DEADLINE = new Date("2022-12-17 23:59:59");
+const DEADLINE = new Date("2022-12-18 23:59:59");
+const LIVEDAY = new Date("2022-12-21 21:00:00");
+const AFTERLIVE = new Date("2022-12-21 23:59:59");
 
 export {
   Top2Data,

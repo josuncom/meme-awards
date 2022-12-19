@@ -1,10 +1,38 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import styled from "styled-components";
+import { LIVEDAY } from "../data/data";
 
 import FakeMeme from "../image/fake-meme.png";
 
 export default function Clock2() {
   const liveLink = "http://bit.ly/3uEb0Ii";
+
+  const currentTime = new Date();
+  const remainingTime = LIVEDAY - currentTime;
+
+  const [time, setTime] = useState(remainingTime);
+  const [day, setDay] = useState("");
+  const [hour, setHour] = useState("");
+  const [minute, setMinute] = useState("");
+  const [second, setSecond] = useState("");
+
+  useEffect(() => {
+    const diffDay = Math.floor(time / (1000 * 60 * 60 * 24));
+    const diffHour = Math.floor((time / (1000 * 60 * 60)) % 24);
+    const diffMin = Math.floor((time / (1000 * 60)) % 60);
+    const diffSec = Math.floor((time / 1000) % 60);
+
+    const id = setInterval(() => {
+      setTime(time - 1000);
+      setDay(diffDay);
+      setHour(diffHour);
+      setMinute(diffMin);
+      setSecond(diffSec);
+    }, 1000);
+    // 1초마다 실행되는 인터벌을 이용해 1초마다 다시 랜더링 시켜줌
+    return () => clearInterval(id);
+    // 페이지를 벗어나게되면 반복을 종료해줌
+  }, [time]);
 
   return (
     <TimeContainer>
@@ -16,22 +44,22 @@ export default function Clock2() {
       <LiveTime>12월 21일 21시 LIVE</LiveTime>
       <Time className="time">
         <TimeBox>
-          <TimeNum>00</TimeNum>
+          <TimeNum>{day}</TimeNum>
           <TimeText>DAYS</TimeText>
         </TimeBox>
         <TimeDot className="TimeDot">:</TimeDot>
         <TimeBox>
-          <TimeNum>00</TimeNum>
+          <TimeNum>{hour < 10 ? "0" + hour : hour}</TimeNum>
           <TimeText>HOURS</TimeText>
         </TimeBox>
         <TimeDot className="TimeDot">:</TimeDot>
         <TimeBox>
-          <TimeNum>00</TimeNum>
+          <TimeNum>{minute < 10 ? "0" + minute : minute}</TimeNum>
           <TimeText>MINUTES</TimeText>
         </TimeBox>
         <TimeDot className="TimeDot">:</TimeDot>
         <TimeBox>
-          <TimeNum>00</TimeNum>
+          <TimeNum>{second < 10 ? "0" + second : second}</TimeNum>
           <TimeText>SECONDS</TimeText>
         </TimeBox>
       </Time>
@@ -40,18 +68,19 @@ export default function Clock2() {
           window.open(liveLink);
         }}
       >
-        <div style={{ marginLeft: "2rem", flex: "7" }}>
-          밈어워즈 시상식에서 바로 확인하기
-        </div>
-        <div style={{ flex: "1" }}>〉</div>
+        <TimeButton>
+          {currentTime > LIVEDAY
+            ? "밈어워즈 시상식에서 바로 확인하기"
+            : "시상식 알림 설정하러 가기"}
+        </TimeButton>
+        <div style={{ flex: "1", textAlign: "right" }}>〉</div>
       </TimeBottom>
     </TimeContainer>
   );
 }
 
 const TimeContainer = styled.div`
-  height: 800px;
-  padding: 7rem 0;
+  padding: 3rem 0;
 `;
 
 const TimeTitle = styled.div`
@@ -66,11 +95,19 @@ const TimeTitle = styled.div`
 
 const TimeSubtitle = styled.div`
   text-align: center;
-  font-size: 4.5rem;
+  font-size: 4.2rem;
   margin-top: 16px;
   font-family: "SUITB";
   color: white;
   line-height: 6rem;
+
+  @media screen and (max-width: 500px) {
+    font-size: 4rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    font-size: 3.8rem;
+  }
 `;
 
 const Time = styled.div`
@@ -82,6 +119,11 @@ const Time = styled.div`
   line-height: 5rem;
   font-family: "SUITM";
   margin-top: 2rem;
+
+  @media screen and (max-width: 380px) {
+    width: 85%;
+    margin-left: 7.5%;
+  }
 `;
 
 const TimeBox = styled.div`
@@ -105,13 +147,23 @@ const TimeNum = styled.div`
     line-height: 7rem;
     font-size: 3.5rem;
   }
+
+  @media screen and (max-width: 380px) {
+    width: 5.5rem;
+    height: 5.5rem;
+    line-height: 5.5rem;
+    font-size: 2.8rem;
+  }
 `;
 const TimeText = styled.div`
   text-align: center;
   color: white;
   font-family: "SUITM";
   font-size: 1.3rem;
-  margin-top: -1.5rem;
+  margin-top: -1rem;
+  @media screen and (max-width: 380px) {
+    font-size: 1.1rem;
+  }
 `;
 const TimeDot = styled.div`
   font-size: 3.5rem;
@@ -135,11 +187,31 @@ const TimeBottom = styled.div`
   cursor: pointer;
   font-family: "SUITM";
   font-weight: bold;
-  font-size: 2rem;
-  padding: 3rem 1rem;
+  padding: 3rem 2rem;
   border-radius: 0.5rem;
   color: black;
+  font-size: 2.2rem;
+
   @media screen and (max-width: 500px) {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    font-size: 1.6rem;
+  }
+`;
+
+const TimeButton = styled.div`
+  margin: auto;
+  flex: 7;
+  text-align: left;
+  font-size: 2.2rem;
+
+  @media screen and (max-width: 500px) {
+    font-size: 2rem;
+  }
+
+  @media screen and (max-width: 380px) {
     font-size: 1.6rem;
   }
 `;
