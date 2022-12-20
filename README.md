@@ -33,5 +33,3 @@
 - ReactJS
 - Firebase
 - styled-component / CSS
-
-
