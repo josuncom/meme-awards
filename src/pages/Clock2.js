@@ -1,11 +1,11 @@
 import { React, useState, useEffect } from "react";
 import styled from "styled-components";
-import { LIVEDAY } from "../data/data";
+import { AFTERLIVE, LIVEDAY } from "../data/data";
 
 import FakeMeme from "../image/fake-meme.png";
 
 export default function Clock2() {
-  const liveLink = "http://bit.ly/3uEb0Ii";
+  const liveLink = "https://www.youtube.com/live/fZ56LKJS7cw?feature=share";
 
   const currentTime = new Date();
   const remainingTime = LIVEDAY - currentTime;
@@ -44,22 +44,26 @@ export default function Clock2() {
       <LiveTime>12월 21일 21시 LIVE</LiveTime>
       <Time className="time">
         <TimeBox>
-          <TimeNum>{day}</TimeNum>
+          <TimeNum>{day > 0 ? day : 0}</TimeNum>
           <TimeText>DAYS</TimeText>
         </TimeBox>
         <TimeDot className="TimeDot">:</TimeDot>
         <TimeBox>
-          <TimeNum>{hour < 10 ? "0" + hour : hour}</TimeNum>
+          <TimeNum>{hour < 0 ? 0 : hour < 10 ? "0" + hour : hour}</TimeNum>
           <TimeText>HOURS</TimeText>
         </TimeBox>
         <TimeDot className="TimeDot">:</TimeDot>
         <TimeBox>
-          <TimeNum>{minute < 10 ? "0" + minute : minute}</TimeNum>
+          <TimeNum>
+            {minute < 0 ? 0 : minute < 10 ? "0" + minute : minute}
+          </TimeNum>
           <TimeText>MINUTES</TimeText>
         </TimeBox>
         <TimeDot className="TimeDot">:</TimeDot>
         <TimeBox>
-          <TimeNum>{second < 10 ? "0" + second : second}</TimeNum>
+          <TimeNum>
+            {second < 0 ? 0 : second < 10 ? "0" + second : second}
+          </TimeNum>
           <TimeText>SECONDS</TimeText>
         </TimeBox>
       </Time>
