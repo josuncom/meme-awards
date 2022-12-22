@@ -2,7 +2,7 @@
 
 ### 1. 프로젝트 개요
 - 2022년 한해동안 유행했던 밈 중 최고의 밈을 선정하는 페이지입니다.
-- 배포 링크 : https://josuncom.github.io/2022-MEME-AWARDS/
+- 배포 링크 : https://www.banggooso.com/ms/meme-awards/2022/
 - 개발 기간 : 2022/11/23 - 2022/12/08
 <br/><br/><br/>
 
