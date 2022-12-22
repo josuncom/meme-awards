@@ -284,7 +284,9 @@ export default function Vote() {
                         <div className="meme-count">
                           {currentTime < BEFORE_DEADLINE
                             ? `${String(
-                                partialVoteCount[item.meme[idx]]?.count
+                                new Intl.NumberFormat("en-US").format(
+                                  partialVoteCount[item.meme[idx]]?.count
+                                )
                               )}표`
                             : currentTime < DEADLINE
                             ? `????${
@@ -299,7 +301,9 @@ export default function Vote() {
                                 )[0]
                               }표 (투표 종료)`
                             : `${String(
-                                partialVoteCount[item.meme[idx]]?.count
+                                new Intl.NumberFormat("en-US").format(
+                                  partialVoteCount[item.meme[idx]]?.count
+                                )
                               )}표`}
                         </div>
                         <div className="meme-block"></div>
@@ -322,7 +326,15 @@ export default function Vote() {
 }
 
 const VoteContainer = styled.div`
-  margin-top: 7rem;
+  margin-top: 6rem;
+
+  @media screen and (max-width: 500px) {
+    margin-top: 4rem;
+  }
+
+  @media screen and (max-width: 380px) {
+    margin-top: 2rem;
+  }
 `;
 
 const VoteIntro = styled.div``;

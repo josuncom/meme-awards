@@ -73,7 +73,7 @@ export default function Winner() {
           {memeInfo.count.map((item, idx) => {
             return (
               <div className={`memeCount top${idx + 1}`} key={`top${idx + 1}`}>
-                {item}표
+                {new Intl.NumberFormat("en-US").format(item)}표
               </div>
             );
           })}
@@ -84,11 +84,11 @@ export default function Winner() {
 }
 
 const Top2Container = styled.div`
-  height: 700px;
-  padding: 6.5rem 3rem;
+  padding: 10rem 3rem;
   background-image: url(${BG});
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
+  background-position: center;
 `;
 
 const Top2Title = styled.div`

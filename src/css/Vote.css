@@ -53,6 +53,32 @@ div > .vote-done-image {
   width: 100%;
   height: 80%;
 }
+.TV_OTT1,
+.CONTENT1,
+.SNS_COMMUNITY4,
+.MEMEPOSE1,
+.SPORTS3,
+.CHARACTER1 {
+  background-image: url("../image/winner.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+  border-radius: 0.5rem !important;
+}
+
+.TV_OTT1 .meme-image,
+.CONTENT1 .meme-image,
+.SNS_COMMUNITY4 .meme-image,
+.MEMEPOSE1 .meme-image,
+.SPORTS3 .meme-image,
+.CHARACTER1 .meme-image {
+  border: 4px solid #faff00;
+  border-top-width: 3.5px;
+  border-bottom-width: 3.5px;
+  border-right: none;
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+
 @media screen and (max-width: 500px) {
   .active > .vote-done-image {
     height: 11rem;
