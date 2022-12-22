@@ -73,8 +73,6 @@ div > .vote-done-image {
 .SPORTS3 .meme-image,
 .CHARACTER1 .meme-image {
   border: 4px solid #faff00;
-  border-top-width: 3.5px;
-  border-bottom-width: 3.5px;
   border-right: none;
   border-radius: 0.5rem 0 0 0.5rem;
 }
@@ -96,5 +94,17 @@ div > .vote-done-image {
   .meme-from {
     padding-left: 1rem;
     font-size: 1.2rem;
+  }
+  .TV_OTT1 .meme-image,
+  .CONTENT1 .meme-image,
+  .SNS_COMMUNITY4 .meme-image,
+  .MEMEPOSE1 .meme-image,
+  .SPORTS3 .meme-image,
+  .CHARACTER1 .meme-image {
+    border: 4px solid #faff00;
+    border-top-width: 3.5px;
+    border-bottom-width: 3.5px;
+    border-right: none;
+    border-radius: 0.5rem 0 0 0.5rem;
   }
 }

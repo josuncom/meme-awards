@@ -177,6 +177,7 @@ export default function Vote() {
       }
     } else {
       alert("투표가 종료됐습니다!");
+      event.stopPropagation();
     }
   };
 

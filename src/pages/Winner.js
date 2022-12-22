@@ -54,6 +54,7 @@ export default function Winner() {
                 className={`meme rank${idx + 1}`}
                 src={require(`../image/meme/${Top2Data[item]}.png`)}
                 key={`meme-rank${idx + 1}`}
+                alt="부문별 1위"
               />
             );
           })}
